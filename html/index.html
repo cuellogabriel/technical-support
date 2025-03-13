@@ -66,14 +66,26 @@
         
         <section id="contacto" class="section">
             <h2>Contacto</h2>
-            <p>Email: tuemail@example.com</p>
-            <p>Redes Sociales: Facebook, Instagram</p>
-            <p>Métodos de pago: Transferencia bancaria, Mercado Pago, Cuenta DNI</p>
-            <p>Alias: __________ | CVU: __________</p>
+            <form id="contact-form">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telefono" placeholder="Número de teléfono" required>
+                <textarea name="mensaje" placeholder="Escribe tu consulta aquí..." required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
         </section>
     </main>
     
     <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="https://instagram.com" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <div class="payment-icons">
+            <a href="https://www.mercadopago.com.ar" target="_blank"><img src="mercadopago-icon.png" alt="Mercado Pago"></a>
+            <a href="https://www.bancodigital.com" target="_blank"><img src="cuentadni-icon.png" alt="Cuenta DNI"></a>
+        </div>
         <p>&copy; 2025 Clases de Informática y Programación Web</p>
     </footer>
     
