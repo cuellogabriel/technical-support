@@ -31,17 +31,17 @@ contactForm.addEventListener('submit', async (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     const footer = document.querySelector('footer');
     footer.innerHTML = `
-        <div class="footer-container" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #000; color: white;">
+        <div class="footer-container" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0, 0, 0, 0.0); color: white;">
             <div class="social-icons" style="display: flex; gap: 10px;">
-                <a href="#" target="_blank"><img src="facebook-icon.png" alt="Facebook" width="30"></a>
-                <a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram" width="30"></a>
+                <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook" width="30"></a>
+                <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram" width="30"></a>
             </div>
             <div class="footer-text" style="text-align: center; flex-grow: 1;">
                 © 2025 Clases de Informática y Programación Web
             </div>
             <div class="payment-icons" style="display: flex; gap: 10px;">
-                <a href="#" target="_blank"><img src="mercadopago-icon.png" alt="Mercado Pago" width="30"></a>
-                <a href="#" target="_blank"><img src="cuentadni-icon.png" alt="Cuenta DNI" width="30"></a>
+                <a href="#" target="_blank"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
+                <a href="#" target="_blank"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
             </div>
         </div>
     `;

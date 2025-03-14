@@ -11,8 +11,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background: #000;
+    padding: 8px 8px;
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     position: fixed;
     width: 100%;
@@ -23,21 +23,20 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 15px;
-    margin-left: -20px; /* Ajusta este valor para mover más o menos hacia la izquierda */
+    gap: 12px;
+    list-style: none; /* Elimina el espacio extra de los puntos */
+    padding: 0; /* Asegura que no haya márgenes adicionales */
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    transition: 0.3s;
+.nav-links li {
+    display: flex;
+    align-items: center; /* Asegura que el punto y el texto estén alineados */
 }
 
-.nav-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+.nav-links li::before {
+    content: "•"; /* Usa un punto en lugar de los bullets normales */
+    margin-right: 5px; /* Ajusta el espacio entre el punto y el texto */
+    color: white; /* Ajusta el color según el diseño */
 }
 
 /* Video de fondo */
@@ -84,16 +83,23 @@ body {
     gap: 10px;
     max-width: 400px;
     margin: auto;
-    background: #1e1e1e;
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px; /* Aumentamos el padding para más espacio interno */
     border-radius: 10px;
+    box-sizing: border-box; /* Evita que los elementos sobresalgan */
 }
-#contact-form input, #contact-form textarea {
-    width: 100%;
+
+/* Ajustamos los campos del formulario */
+#contact-form input, 
+#contact-form textarea {
+    width: calc(100% ); /* Resta un poco de ancho para evitar que sobresalga */
     padding: 10px;
     border: none;
     border-radius: 5px;
+    box-sizing: border-box; /* Asegura que los padding no expandan el tamaño */
 }
+
+/* Botón */
 #contact-form button {
     background: #25d366;
     color: white;
@@ -101,27 +107,44 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: auto; /* Botón del mismo ancho del formulario */
 }
-
 /* Footer */
 footer {
-    background: #000;
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     text-align: center;
 }
 .social-icons img, .payment-icons img {
-    width: 40px;
+    width: 60px;
     margin: 0 10px;
+    border-radius: 50%;
 }
 
 /* WhatsApp fijo */
 .whatsapp {
     position: fixed;
-    bottom: 20px;
+    bottom: 98px;
     right: 20px;
-    background: #25d366;
+    background: none;
     color: white;
     padding: 10px 15px;
     border-radius: 50%;
     text-decoration: none;
+    height: 80px;
+    width: 80px;
 }
+
+
+.card:hover{
+    border-radius:20px;
+    -webkit-border-radius:20px;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   .textodearea{
+    height: 100px;
+   }
