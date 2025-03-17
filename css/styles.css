@@ -12,13 +12,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 8px 8px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    
 }
 
 .nav-links {
@@ -26,7 +28,11 @@ body {
     gap: 12px;
     list-style: none; /* Elimina el espacio extra de los puntos */
     padding: 0; /* Asegura que no haya márgenes adicionales */
+    right: 20px;
+    position: relative;
 }
+
+
 
 .nav-links li {
     display: flex;
@@ -36,7 +42,20 @@ body {
 .nav-links li::before {
     content: "•"; /* Usa un punto en lugar de los bullets normales */
     margin-right: 5px; /* Ajusta el espacio entre el punto y el texto */
-    color: white; /* Ajusta el color según el diseño */
+    color: #1eec63; /* Ajusta el color según el diseño */
+}
+
+.stilo{
+    color: #1eec63;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.principal{
+    position: relative;
+    left: 50px;
+    color: #1eec63;
+    font-size: 30px;
 }
 
 /* Video de fondo */
@@ -68,12 +87,63 @@ body {
     justify-content: center;
     gap: 20px;
 }
+
+/* Sección con columnas */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    gap: 40px;
+}
+
+.column {
+    width: 48%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.divider {
+    width: 2px;
+    background: rgba(255, 255, 255, 0.884);
+    height: auto;
+}
+
+.precio-1{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #1eec63;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.titulo2{
+    position: relative;
+    bottom: 10px;
+    color: #1eec63;
+
+}
+
+.titulo3{
+    color: #1eec63;
+}
+
+
 .card {
     background: #1e1e1e;
     padding: 20px;
     border-radius: 10px;
     width: 200px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* Formulario de contacto */
@@ -87,6 +157,7 @@ body {
     padding: 20px; /* Aumentamos el padding para más espacio interno */
     border-radius: 10px;
     box-sizing: border-box; /* Evita que los elementos sobresalgan */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* Ajustamos los campos del formulario */
@@ -109,11 +180,20 @@ body {
     cursor: pointer;
     width: auto; /* Botón del mismo ancho del formulario */
 }
+
+.contactenos{
+    color: #1eec63;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
 /* Footer */
 footer {
     background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 .social-icons img, .payment-icons img {
     width: 60px;
@@ -124,18 +204,20 @@ footer {
 /* WhatsApp fijo */
 .whatsapp {
     position: fixed;
-    bottom: 98px;
+    bottom: 140px;
     right: 20px;
     background: none;
     color: white;
     padding: 10px 15px;
     border-radius: 50%;
     text-decoration: none;
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 
+/* efectos hovers */
 .card:hover{
     border-radius:20px;
     -webkit-border-radius:20px;
@@ -148,3 +230,76 @@ footer {
    .textodearea{
     height: 100px;
    }
+
+   .column:hover{
+    border-radius:20px;
+    -webkit-border-radius:20px;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   .logoprincipal:hover{
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+   
+   .stilo:hover{
+    border-radius:20px;
+    -webkit-border-radius:15px;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   .contactenos:hover{
+    border-radius:20px;
+    -webkit-border-radius:15px;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   #contact-form:hover{
+    border-radius:20px;
+    -webkit-border-radius:15px;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   .btn-1:hover{
+    border-radius:20px;
+    -webkit-border-radius:15px;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   .whatsapp:hover{
+    border-radius:50%px;
+    -webkit-border-radius:50%;
+    box-shadow: 0px 0px 15px 15px #1eec63;
+    -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+   }
+
+   /* estilos del logo */
+   .logoprincipal{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    opacity: 0.9;
+   }
+   

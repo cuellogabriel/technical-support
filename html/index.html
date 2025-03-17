@@ -10,13 +10,13 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">LOGO</div>
-            <h1>Clases de Informática y Programación</h1>
+            <div class="logo"><img src="../pictures/LogoPrincipal.JPG" class="logoprincipal" alt=""></div>
+            <h1 class="principal">Clases de Informática y Programación</h1>
             <ul class="nav-links">
-                <li><a href="#presentacion">Inicio</a></li>
-                <li><a href="#metodologia">Metodología</a></li>
-                <li><a href="#precios">Precios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a class="stilo" href="#info">Inicio</a></li>
+                <li><a class="stilo" href="#info">Metodología</a></li>
+                <li><a class="stilo" href="#precios">Precios</a></li>
+                <li><a class="stilo" href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -28,18 +28,38 @@
     </section>
     
     <main>
-        <section id="presentacion" class="section">
-            <h2>Aprende Informática y Programación Web</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
-        
-        <section id="metodologia" class="section">
-            <h2>Metodología de Enseñanza</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
+   
+<section id="info" class="section">
+    <div class="info-container">
+        <div class="column">
+            <h2 class="titulo2">📚 Aprende Informática y Programación Web</h2>
+            <p>🚀 Clases Particulares y de Apoyo en: Informática y Programación Web 💻</p>
+            <p>🔹 Desde informática básica hasta nivel analista.</p>
+            <p>🔹 Programación web con HTML, CSS, JavaScript.</p>
+            <p>🔹 React (Próximamente)</p>
+            <h2 class="titulo3" class="abajo">👥 Modalidad flexible:</h2>
+            <p class="abajo">✅ Clases grupales (máximo 10 personas).</p>
+            <p class="abajo">✅ Clases individuales personalizadas según tu nivel.</p>
+            <p class="abajo">✅ Para todas las edades: niños, jóvenes, adultos y adultos mayores.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="column">
+            <h2 class="titulo2">🎯 Metodología de Enseñanza</h2>
+            <p>✔️ Cursos estructurados para aprender desde cero.</p>
+            <p>✔️ Clases interactivas y dinámicas.</p>
+            <p>✔️ Clases adaptadas si necesitas reforzar algo específico.</p>
+            <p>✔️ Material de apoyo con apuntes y links de referencia.</p>
+            <p>✔️ Soporte en horarios específicos para dudas.</p>
+            <p>❌ Sin evaluaciones: tu avance depende de tu compromiso.</p>
+            <p>❌ No se permiten alumnos sin interés: quienes falten mucho o no muestren ganas de aprender serán dados de baja.</p>
+            <p>📍 Modalidad: [Presencial]</p>
+            <p>⏳ Duración: [A tu ritmo]</p>
+        </div>
+    </div>
+</section>
         
         <section id="precios" class="section">
-            <h2>Precios</h2>
+            <h2 class="precio-1">Precios</h2>
             <div class="pricing-container">
                 <div class="card">
                     <h3>Por Clase</h3>
@@ -65,14 +85,15 @@
         </section>
         
         <section id="contacto" class="section">
-            <h2>Contacto</h2>
+            
             <form id="contact-form">
+                <h2 class="contactenos">Contacto</h2>
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <input type="text" name="apellido" placeholder="Apellido" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="tel" name="telefono" placeholder="Número de teléfono" required>
                 <textarea name="mensaje" placeholder="Escribe tu consulta aquí..." class="textodearea" required></textarea>
-                <button type="submit">Enviar</button>
+                <button type="submit" class="btn-1">Enviar</button>
             </form>
         </section>
     </main>
