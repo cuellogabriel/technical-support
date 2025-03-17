@@ -138,7 +138,7 @@ body {
 
 
 .card {
-    background: #1e1e1e;
+    background: linear-gradient(45deg, #36040463, #484ada);
     padding: 20px;
     border-radius: 10px;
     width: 200px;
