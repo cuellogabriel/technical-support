@@ -36,13 +36,13 @@ body {
 
 .nav-links li {
     display: flex;
-    align-items: center; /* Asegura que el punto y el texto estén alineados */
+    align-items: center; /* alineacion de texto  */
 }
 
 .nav-links li::before {
-    content: "•"; /* Usa un punto en lugar de los bullets normales */
-    margin-right: 5px; /* Ajusta el espacio entre el punto y el texto */
-    color: #1eec63; /* Ajusta el color según el diseño */
+    content: "•"; /*  punto en lugar de los bullets normales */
+    margin-right: 5px; /* espacio entre el punto y el texto */
+    color: #1eec63; /*color según el diseño */
 }
 
 .stilo{
@@ -154,23 +154,23 @@ body {
     max-width: 400px;
     margin: auto;
     background: rgba(0, 0, 0, 0.4);
-    padding: 20px; /* Aumentamos el padding para más espacio interno */
+    padding: 20px; /* más espacio interno */
     border-radius: 10px;
-    box-sizing: border-box; /* Evita que los elementos sobresalgan */
+    box-sizing: border-box; /* sin overflow de elementos */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Ajustamos los campos del formulario */
+/* campos del formulario */
 #contact-form input, 
 #contact-form textarea {
-    width: calc(100% ); /* Resta un poco de ancho para evitar que sobresalga */
+    width: calc(100% ); /* retoque antioverflow */
     padding: 10px;
     border: none;
     border-radius: 5px;
-    box-sizing: border-box; /* Asegura que los padding no expandan el tamaño */
+    box-sizing: border-box; /* para que los padding no agranden el contect */
 }
 
-/* Botón */
+/* Botón de form input*/
 #contact-form button {
     background: #25d366;
     color: white;
@@ -178,7 +178,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: auto; /* Botón del mismo ancho del formulario */
+    width: auto; /*ajuste de ancho del boton */
 }
 
 .contactenos{
