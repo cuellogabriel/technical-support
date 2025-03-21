@@ -97,6 +97,8 @@ body {
     margin: auto;
     padding: 40px 20px;
     gap: 40px;
+    top: 50px;
+    position: relative;
 }
 
 .column {
@@ -116,13 +118,27 @@ body {
     height: auto;
 }
 
-.precio-1{
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.precio-1 {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
     color: #1eec63;
     font-size: 28px;
     font-weight: bold;
+    position: relative;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 270px;
+    left: 840px;
+    border-radius: 20%;
+    text-align: center;
+    pointer-events: auto;
+    height: 50px;
+}
+
+#precios{
+    position: relative;
+    bottom: 100px;
 }
 
 .titulo2{
@@ -146,6 +162,24 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
+.banner-curso {
+    background-color: rgba(255, 165, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 0.8;
+    bottom: 80px;
+    display: inline-block; /* Hace que el ancho dependa del contenido */
+    padding: 10px 20px; /* Ajusta el espacio interno */
+    background-position: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Centrar el banner en la pantalla */
+    border-radius: 10px;
+}
+
 /* Formulario de contacto */
 #contact-form {
     display: flex;
@@ -154,11 +188,13 @@ body {
     max-width: 400px;
     margin: auto;
     background: rgba(0, 0, 0, 0.4);
-    padding: 20px; /* más espacio interno */
+    padding: 20px; /* mespacio interno */
     border-radius: 10px;
-    box-sizing: border-box; /* sin overflow de elementos */
+    box-sizing: border-box; /* spara evitar overflow en los elementos */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
+    position: relative;
+    bottom: 40px;
+    }
 
 /* campos del formulario */
 #contact-form input, 
@@ -294,6 +330,7 @@ footer {
     -webkit-transform: rotate(360deg);
    }
 
+
    /* estilos del logo */
    .logoprincipal{
     border-radius: 50%;
@@ -303,3 +340,6 @@ footer {
     opacity: 0.9;
    }
    
+
+
+
