@@ -7,3 +7,4 @@ document.querySelectorAll('.card-header').forEach(header => {
         btn.textContent = content.classList.contains('active') ? '-' : '+';
     });
 });
+

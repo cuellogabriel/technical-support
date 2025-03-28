@@ -213,6 +213,7 @@ body {
     background: #17c550;
 }
 
+
 .banner-curso {
     background-color: rgba(255, 165, 0, 0.8);
     color: #fff;
@@ -303,6 +304,10 @@ footer {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
+.abajo1{
+    color: #1eec63;
+    background-color: #1eec63;
+}
 
 /* efectos hovers */
 .card:hover{

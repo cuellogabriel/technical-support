@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook" width="30"></a>
                 <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram" width="30"></a>
             </div>
-            <div class="footer-text" style="text-align: center; flex-grow: 1;">
+            <div class="footer-text" style="text-align: center; flex-grow: 1; color : #1eec63; font-size: 30px;">
                 © 2025 Clases de Informática y Programación Web
             </div>
             <div class="payment-icons" style="display: flex; gap: 10px;">
