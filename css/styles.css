@@ -5,7 +5,21 @@ body {
     padding: 0;
     background-color: #121212;
     color: #fff;
+    
 }
+
+
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+
 
 .navbar {
     display: flex;
@@ -26,8 +40,8 @@ body {
 .nav-links {
     display: flex;
     gap: 12px;
-    list-style: none; /* Elimina el espacio extra de los puntos */
-    padding: 0; /* Asegura que no haya márgenes adicionales */
+    list-style: none; /* Elimina el espacio de los puntos */
+    padding: 0; /* sacamos amrgenes extras */
     right: 20px;
     position: relative;
 }
@@ -42,7 +56,7 @@ body {
 .nav-links li::before {
     content: "•"; /*  punto en lugar de los bullets normales */
     margin-right: 5px; /* espacio entre el punto y el texto */
-    color: #1eec63; /*color según el diseño */
+    color: #1eec63; /*color del diseño */
 }
 
 .stilo{
@@ -73,6 +87,7 @@ body {
     height: 100%;
     object-fit: cover;
 }
+  
 
 /* Secciones */
 .section {
@@ -120,8 +135,8 @@ body {
 
 .precio-1 {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra H */
+    align-items: center; /* Centra V */
     color: #1eec63;
     font-size: 28px;
     font-weight: bold;
@@ -224,7 +239,7 @@ body {
     opacity: 0.8;
     bottom: 80px;
     display: inline-block; /* Hace que el ancho dependa del contenido */
-    padding: 10px 20px; /* Ajusta el espacio interno */
+    padding: 10px 20px; /* espacio interno */
     background-position: center;
     position: relative;
     left: 50%;
@@ -240,9 +255,9 @@ body {
     max-width: 400px;
     margin: auto;
     background: rgba(0, 0, 0, 0.4);
-    padding: 20px; /* mespacio interno */
+    padding: 20px; /* espacio interno */
     border-radius: 10px;
-    box-sizing: border-box; /* spara evitar overflow en los elementos */
+    box-sizing: border-box; /* para evitar overflow en los elementos */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     position: relative;
     bottom: 40px;
@@ -266,7 +281,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: auto; /*ajuste de ancho del boton */
+    width: auto; /*ancho del boton */
 }
 
 .contactenos{

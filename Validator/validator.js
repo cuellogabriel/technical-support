@@ -23,10 +23,10 @@ contactForm.addEventListener('submit', async (e) => {
 
 // Función para validar campos
 function validarCampos(data) {
-    // Expresión regular para validar email
+    // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-    // Verificar que todos los campos están llenos
+    // Campos llenos
     for (let key in data) {
         if (!data[key].trim()) {
             alert(`El campo "${key}" es obligatorio.`);
