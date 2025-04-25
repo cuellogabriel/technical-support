@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.min.js"></script>
 </head>
 <body>
-     
+   
     <section id="video-fondo">
         <video autoplay muted loop id="bg-video">
             <source src="../pictures/vid-1.mp4" type="video/mp4">
@@ -21,7 +21,6 @@
         <div class="intro-symbol">Support Technology</div>
     </div>
 
-    <canvas id="trail"></canvas>
     <div class="next-section">
     <header>
         <nav class="navbar">
@@ -36,15 +35,7 @@
         </nav>
     </header>
     
-    <section id="video-fondo">
-        <video autoplay muted loop id="bg-video">
-            <source src="../pictures/vid-1.mp4" type="video/mp4">
-        </video>
-    </section>
-
-
-    <main>
-   
+    
 <section id="info" class="section">
     <div class="content">
       <div class="info-container">
@@ -75,98 +66,69 @@
       </div>
     </div>
 </section>
+<canvas id="trail"></canvas>
+  <main>
        <h2 class="precio-1">Servicios</h2>
-       <section id="precios" class="section">
-        <div class="pricing-container">
-            <div class="card">
-                <div class="card-header">
-                    <h3>📚 Por Clase </h3>
-                    <button class="toggle-btn">+</button>
-                </div>
-                <div class="card-content">
-                    <p>📌 Ideal para quienes necesitan reforzar temas específicos.</p>
-                    <p>📚 Clase personalizada según tu nivel y necesidades.</p>
-                    <p>📖 Material de apoyo luego de la clase.</p>
-                    <p>⏳ Duración: [1 hora]</p>
-                    <button class="price-btn">$ 10.000</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>📚 Por Semana </h3>
-                    <button class="toggle-btn">+</button>
-                </div>
-                <div class="card-content">
-                    <p>📌 Perfecto para quienes buscan un aprendizaje y refuerzo intensivo.</p>
-                    <p>📚 2 Clases con seguimiento personalizado.</p>
-                    <p>📖 Acceso a material de apoyo y consultas en horario definido.</p>
-                    <p>⏳ Duración: [2 Clases]</p>
-                    <button class="price-btn">$ 18.000</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>📚 Por Mes </h3>
-                    <button class="toggle-btn">+</button>
-                </div>
-                <div class="card-content">
-                    <p>📌 Opción recomendada para un aprendizaje estructurado y progresivo.</p>
-                    <p>📚 Plan de estudios adaptado a tu nivel con objetivos semanales.</p>
-                    <p>🎯 Clases interactivas + material de apoyo detallado.</p>
-                    <p>⏳ Duración: [8 Clases]</p>
-                    <button class="price-btn">$ 70.000</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>💻 Programación Web</h3>
-                    <button class="toggle-btn">+</button>
-                </div>
-                <div class="card-content">
-                    <p>📌 Aprende HTML, CSS, JavaScript.</p>
-                    <p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" width="20px" height="20px"> React (Próximamente).</p>
-                    <p>📖 Desde los fundamentos hasta el desarrollo de proyectos reales.</p>
-                    <p>🎯 Para quienes buscan iniciarse o mejorar sus habilidades en desarrollo web.</p>
-                    <button class="price-btn">$ Próximamente</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>🖥️ Curso de Informática</h3>
-                    <button class="toggle-btn">+</button>
-                </div>
-                <div class="card-content">
-                    <p>📌 Manejo de sistemas operativos, software de oficina y herramientas digitales.</p>
-                    <p>📖 Desde nivel básico hasta un uso avanzado para el ámbito laboral.</p>
-                    <p>🎯 Ideal para quienes desean mejorar sus habilidades tecnológicas.</p>
-                    <button class="price-btn">$ Próximamente</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>🌾 Agricultura de Precisión</h3>
-                    <button class="toggle-btn">+</button>
-                </div>
-                <div class="card-content">
-                    <p>📌 Introducción a la tecnología aplicada al agro.</p>
-                    <p>📌 Uso de GPS, sensores y mapeo de suelos.</p>
-                    <p>📌 Sistemas de gestión para mejorar la productividad.</p>
-                    <p>📌 Interpretación de datos para toma de decisiones en el campo.</p>
-                    <button class="price-btn">$ Próximamente</button>
-                </div>
-            </div>
+       
+       <div class="info-section">
+        <div class="info-tabs">
+          <div class="tab active" data-tab="clase">📚 Por Clase</div>
+          <div class="tab" data-tab="semana">📚 Por Semana</div>
+          <div class="tab" data-tab="mes">📚 Por Mes</div>
         </div>
-    </section>
-        
-            <div class="banner-curso">
-                ⚠️ 🚀 Los cursos estarán disponibles próximamente. ¡Estamos trabajando para brindarte la mejor experiencia! 📚
+      
+        <div class="info-content">
+          <div class="content-box active" id="clase">
+            <div class="text-and-image">
+              <div class="info-text">
+                <h2>📚 Por Clase</h2>
+                <p>📌 Ideal para quienes necesitan reforzar temas específicos.</p>
+                <p>📚 Clase personalizada según tu nivel y necesidades.</p>
+                <p>📖 Material de apoyo luego de la clase.</p>
+                <p>⏳ Duración: [1 hora]</p>
+                <button class="price-btn">$ 10.000</button>
+              </div>
+              <div class="info-image">
+                <img src="https://via.placeholder.com/300x200" alt="Clase individual">
+              </div>
             </div>
-
+          </div>
+      
+          <div class="content-box" id="semana">
+            <div class="text-and-image">
+              <div class="info-text">
+                <h2>📚 Por Semana</h2>
+                <p>📌 Perfecto para quienes buscan un aprendizaje y refuerzo intensivo.</p>
+                <p>📚 2 Clases con seguimiento personalizado.</p>
+                <p>📖 Acceso a material de apoyo y consultas en horario definido.</p>
+                <p>⏳ Duración: [2 Clases]</p>
+                <button class="price-btn">$ 18.000</button>
+              </div>
+              <div class="info-image">
+                <img src="https://via.placeholder.com/300x200" alt="Clases semanales">
+              </div>
+            </div>
+          </div>
+      
+          <div class="content-box" id="mes">
+            <div class="text-and-image">
+              <div class="info-text">
+                <h2>📚 Por Mes</h2>
+                <p>📌 Opción recomendada para un aprendizaje estructurado y progresivo.</p>
+                <p>📚 Plan de estudios adaptado a tu nivel con objetivos semanales.</p>
+                <p>🎯 Clases interactivas + material de apoyo detallado.</p>
+                <p>⏳ Duración: [8 Clases]</p>
+                <button class="price-btn">$ 70.000</button>
+              </div>
+              <div class="info-image">
+                <img src="https://via.placeholder.com/300x200" alt="Clases mensuales">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
 
         <section id="contacto" class="section">
             
@@ -180,7 +142,6 @@
                 <button type="submit" class="btn-1">Enviar</button>
             </form>
         </section>
-    </main>
     
     <footer>
         <div class="social-icons">
@@ -195,6 +156,11 @@
     </footer>
     
     <a href="https://wa.me/2324342375"  target="_blank"><img class="whatsapp" src="../pictures/whatsp 1.avif" alt=""></a>
+    <section id="video-fondo">
+        <video autoplay muted loop id="bg-video">
+            <source src="../pictures/vid-1.mp4" type="video/mp4">
+        </video>
+    </section>
 </div>
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
