@@ -3,7 +3,7 @@ const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
 
@@ -13,10 +13,9 @@ contactForm.addEventListener('submit', async (e) => {
     }
 
     // Envío del correo con mailto
-    const mailtoLink = `mailto:robertogabrielcuello@gmail.com?subject=Consulta de ${data.nombre}
-    ${data.apellido}&body=Email: ${data.email}%0D%0ATeléfono: ${data.telefono}%0D%0AConsulta: ${data.mensaje}`;
+    const mailtoLink = `mailto:robertogabrielcuello@gmail.com?subject=Consulta de ${data.nombre} ${data.apellido}&body=Email: ${data.email}%0D%0ATeléfono: ${data.telefono}%0D%0AConsulta: ${data.mensaje}`;
     window.location.href = mailtoLink;
-    
+
     alert('Tu consulta ha sido enviada correctamente.');
     contactForm.reset();
 });
@@ -25,10 +24,10 @@ contactForm.addEventListener('submit', async (e) => {
 function validarCampos(data) {
     // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     // Campos llenos
-    for (let key in data) {
-        if (!data[key].trim()) {
+    for (const key in data) {
+        if (data.hasOwnProperty(key) && !data[key].trim()) {
             alert(`El campo "${key}" es obligatorio.`);
             return false;
         }

@@ -56,8 +56,8 @@ body {
         .next-section {
             position: relative;
             z-index: 2;
-            margin-top: -100vh;
-            padding-top: 100vh;
+            margin-top: -50vh;
+            padding-top: 50vh;
             background-color: white;
             clip-path: inset(100% 0% 0% 0%);
             transition: clip-path 1s ease-out;
@@ -101,7 +101,7 @@ canvas {
     
   }
 
-  /* Para que se muestre el cursor en estas zonas*/
+  /* Para que se muestre en : */
   input, textarea, button {
     cursor: auto;
   }
@@ -127,8 +127,8 @@ canvas {
 .nav-links {
     display: flex;
     gap: 12px;
-    list-style: none; /* Elimina el espacio de los puntos */
-    padding: 0; /* sacamos amrgenes extras */
+    list-style: none; /* Eliminacion de espacio entre los puntos */
+    padding: 0; /* borrado de margenes extras */
     right: 20px;
     position: relative;
 }
@@ -137,13 +137,13 @@ canvas {
 
 .nav-links li {
     display: flex;
-    align-items: center; /* alineacion de texto  */
+    align-items: center; 
 }
 
 .nav-links li::before {
-    content: "•"; /*  punto en lugar de los bullets normales */
-    margin-right: 5px; /* espacio entre el punto y el texto */
-    color: #1eec63; /*color del diseño */
+    content: "•"; 
+    margin-right: 5px; 
+    color: #1eec63; 
 }
 
 .stilo{
@@ -253,163 +253,240 @@ canvas {
 
 /*Slice + card e info*/
 .info-section {
-    display: flex;
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .info-tabs {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    border-right: 4px solid #f5f5f5;
-  }
-  
-  .tab {
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #333;
-    border-left: 4px solid transparent;
-    transition: all 0.3s ease;
-  }
-  
-  .tab:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .tab.active {
-    border-left: 4px solid #ffd700;
-    background-color: #fffbe6;
-    color: #000;
-  }
-  
-  .info-content {
-    flex: 3;
-    padding: 0 30px;
-  }
-  
-  .content-box {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  .content-box.active {
-    display: block;
-  }
-  
-  .price-btn {
-    margin-top: 15px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  @keyframes fadeIn {
-    from {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.info-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 4px solid #f5f5f5;
+  padding: 20px;
+}
+
+.tab {
+  padding: 20px;
+  margin: 2px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #1eec63;
+}
+
+.tab.active {
+  border-left: 4px solid #ffd700;
+  background-color: #1eec63;
+  color: #000;
+}
+
+.info-content {
+  flex: 3;
+  padding: 0 30px;
+}
+
+.content-box {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.content-box.active {
+  display: block;
+}
+
+.text-and-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.info-text {
+  flex: 1.5;
+}
+
+.info-image-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  border-left: 4px max-width 100% solid #f5f5f5 ;
+  padding-left: 20px;
+}
+
+.info-image {
+  width: 100%; /* Asegura que la imagen no se desborde de su contenedor */
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px; /* Espacio entre la imagen y el botón */
+  overflow: hidden; /* Importante para que las dimensiones funcionen correctamente */
+  display: flex; /* Para centrar la imagen dentro */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.info-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: contain; /* La imagen se ajusta manteniendo su relación de aspecto */
+}
+
+.price-btn {
+  background-color: #1eec63 ;
+  color: black;
+  border: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 70%; 
+  text-align: center; /* Centrado de texto en bt */
+  position: relative;
+  top: 20px;
+}
+
+@keyframes fadeIn {
+  from {
       opacity: 0;
       transform: translateY(10px);
-    }
-    to {
+  }
+  to {
       opacity: 1;
       transform: translateY(0);
-    }
   }
+}
 
-  .text-and-image {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-  }
-  
-  .info-text {
-    flex: 1.5;
-  }
-  
-  .info-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .info-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
 
-/* no estan disponibles los cursos*/
-.banner-curso {
-    background-color: rgba(255, 165, 0, 0.8);
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    opacity: 0.8;
-    bottom: 80px;
-    display: inline-block; /* Hace que el ancho dependa del contenido */
-    padding: 10px 20px; /* espacio interno */
-    background-position: center;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%); /* Centrar el banner en la pantalla */
-    border-radius: 10px;
+/* Formulario de contacto y Servicios Ofrecidos */
+.contacto-container {
+  display: flex;
+  max-width: 1200px; /* Ajusta el ancho máximo según necesites */
+  margin: 50px auto; /* Centra el contenedor principal */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  position: relative;
+  bottom: 40px; /* Mantiene el posicionamiento anterior */
+  gap: 30px; /* Espacio entre el formulario y la sección de servicios */
+  align-items: stretch; /* Para que ambos elementos tengan la misma altura */
+}
+
+/* Sección de Servicios Ofrecidos */
+.servicios-ofrecidos {
+  flex: 1; /* La sección de servicios ocupa 1 parte del espacio disponible */
+  padding: 20px;
+  color: white; /* Color del texto de los servicios */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea el contenido al inicio */
+}
+
+.servicios-titulo {
+  color: #1eec63;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0; /* Elimina el margen superior predeterminado */
+  margin-bottom: 15px;
+}
+
+.lista-servicios-descripcion {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-servicios-descripcion li {
+  margin-bottom: 15px;
+}
+
+.servicio-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.servicio-nombre {
+  font-weight: bold;
+  margin-bottom: 5px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.servicio-nombre::before {
+  content: "•"; /* Puedes cambiar el "•" por otro icono o carácter */
+  color: #fff; /* Color del icono */
+  position: absolute;
+  left: 0;
+}
+
+.servicio-descripcion {
+  font-size: 0.9em;
+  line-height: 1.4;
 }
 
 /* Formulario de contacto */
 #contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px; /* espacio interno */
-    border-radius: 10px;
-    box-sizing: border-box; /* para evitar overflow en los elementos */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    position: relative;
-    bottom: 40px;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 400px; /* Ancho mínimo del formulario */
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  flex: 1; /* El formulario ocupa 1 parte del espacio disponible */
+  position: relative; /* Para posicionar la línea divisoria */
+}
 
 /* campos del formulario */
-#contact-form input, 
+#contact-form input,
 #contact-form textarea {
-    width: calc(100% ); /* retoque antioverflow */
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box; /* para que los padding no agranden el contect */
+  width: calc(100% ); /* retoque antioverflow */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 /* Botón de form input*/
 #contact-form button {
-    background: #25d366;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: auto; /*ancho del boton */
+  background: #25d366;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto; /*ancho del boton */
 }
 
-.contactenos{
-    color: #1eec63;
-    font-size: 25px;
-    font-weight: bold;
+.contactenos {
+  color: #1eec63;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 0; /* Elimina el margen superior predeterminado */
 }
 
-
+/* Línea divisoria */
+.contacto-container::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Centra verticalmente la línea */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ajusta el centrado */
+  width: 1px; /* Grosor de la línea */
+  height: 75%; /* Altura de la línea (75% del alto del contenedor) */
+  background-color: white;
+  opacity: 0.5; /* O la opacidad que desees */
+}
 /* Footer */
 footer {
     background: rgba(0, 0, 0, 0.6);
