@@ -13,7 +13,7 @@ contactForm.addEventListener('submit', async (e) => {
     }
 
     // Envío del correo con mailto
-    const mailtoLink = `mailto:robertogabrielcuello@gmail.com?subject=Consulta de ${data.nombre} ${data.apellido}&body=Email: ${data.email}%0D%0ATeléfono: ${data.telefono}%0D%0AConsulta: ${data.mensaje}`;
+    const mailtoLink = `mailto:gfariascuello@gmail.com?subject=Consulta de ${data.nombre} ${data.apellido}&body=Email: ${data.email}%0D%0ATeléfono: ${data.telefono}%0D%0AConsulta: ${data.mensaje}`;
     window.location.href = mailtoLink;
 
     alert('Tu consulta ha sido enviada correctamente.');

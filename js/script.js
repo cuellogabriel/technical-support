@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 });
 
+
+
+
+
 // Cursor particulas. 
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -174,35 +178,3 @@ window.addEventListener('resize', () => {
   canvas.width = width;
   canvas.height = height;
 });
-
-
-
- gsap.registerPlugin(ScrollTrigger);
-// Animación para el ST
-gsap.to(".intro-symbol", {
-   scale: 15,
-  ease: "none",
-  scrollTrigger: {
-     trigger: ".intro-container",
-   start: "top top",
-   end: "300%",
-   scrub: true,
-   pin: true,
-   onUpdate: (self) => {
- // Mostrar la siguiente sección dentro de la ST
-  if (self.progress > 0.1) {
-      document.querySelector(".next-section").classList.add("visible");
-   }
- // Mostrar el contenido dentro de la ST
-     if (self.progress > 0.5) {
-      document.querySelector(".content").classList.add("visible");
-   }
- // Escalar el contenido dentro de la ST
-          if (self.progress > 0.3) {
-        document.querySelector(".info-container").classList.add("visible");
-       }
-    }
-   }
- });
-
-
