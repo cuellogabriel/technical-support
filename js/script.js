@@ -51,56 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Cursor particulas. 
-let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-let renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-camera.position.z = 5;
-
-let points = [];
-let material = new THREE.PointsMaterial({
-  color: 0xffcc00,
-  size: 0.15,
-  transparent: true,
-  opacity: 0.9,
-});
-
-function addPoint(x, y) {
-  const vector = new THREE.Vector3(
-    (x / window.innerWidth) * 2 - 1,
-    -(y / window.innerHeight) * 2 + 1,
-    0
-  );
-  vector.unproject(camera);
-  vector.z = 0;
-  points.push(vector);
-  if (points.length > 100) points.shift();
-
-  const geometry = new THREE.BufferGeometry().setFromPoints(points);
-  scene.clear(); // borrar puntos anteriores
-  let pointCloud = new THREE.Points(geometry, material);
-  scene.add(pointCloud);
-}
-
-document.addEventListener("mousemove", (e) => {
-  addPoint(e.clientX, e.clientY);
-});
-
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
-
-animate();
-
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
 
 const canvas = document.getElementById('trail');
 const ctx = canvas.getContext('2d');
