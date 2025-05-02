@@ -281,96 +281,144 @@ canvas {
 }
 
 
-/* Formulario de contacto y Servicios Ofrecidos */
+/*estilos general para form y servicios*/
+
 .contacto-container {
   display: flex;
-  max-width: 1200px; 
-  margin: 50px auto; /* Centrado de contenedor principal */
+  max-width: 1200px;
+  margin: 50px auto;
   padding: 20px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   position: relative;
-  bottom: 40px; /* Mantiene el posicionamiento anterior */
-  gap: 30px; /* Espacio entre el formulario y la sección de servicios */
-  align-items: stretch; 
+  bottom: 40px;
+  gap: 30px;
+  align-items: stretch;
+  flex-direction: row; 
 }
 
-/* Sección de Servicios Ofrecidos */
-.servicios-ofrecidos {
-  flex: 1; 
-  padding: 20px;
-  color: white; 
+.servicios-container {
+  text-align: center;
+  color: white;
+  margin: auto 0 auto auto; 
+  flex: 0 0 auto; 
+}
+
+.titulo-servicio {
+  display: flex;
+  position: relative;
+  color: #1eec63;
+  font-size: 25px;
+  font-weight: bold;
+  bottom: 77px;
+  left: 140px;
+}
+
+.servicios-carrusel {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
 }
 
-.servicios-titulo {
-  color: #1eec63;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 0; 
-  margin-bottom: 15px;
+.servicio-visible {
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.servicio-item {
+  display: none;
+  padding: 10px;
+}
+
+.servicio-item.activo {
+  display: block;
+}
+
+.servicio-item.activo p {
+  max-height: 100px; 
+  overflow-y: auto; 
+  margin-bottom: 0; 
 }
 
 .lista-servicios-descripcion {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease-in-out;
+}
+
+.flecha {
+  background: #1eec63;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: color 0.2s ease;
+  border: 1px solid #ffd700;
+  border-radius: 50%;
+}
+
+.flecha:hover {
+  color: #39ff90;
 }
 
 .lista-servicios-descripcion li {
-  margin-bottom: 15px;
-}
-
-.servicio-item {
+  height: 180px; 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.2;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  color: white;
+  padding: 0 10px;
 }
 
-.servicio-nombre {
-  font-weight: bold;
-  margin-bottom: 5px;
-  position: relative;
-  padding-left: 15px;
+.lista-servicios-descripcion li.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.servicio-nombre::before {
-  content: "•"; 
-  color: #fff; 
-  position: absolute;
-  left: 0;
+.carousel-button.prev svg {
+  transform: rotate(270deg);
 }
 
-.servicio-descripcion {
-  font-size: 0.9em;
-  line-height: 1.4;
+.carousel-button.next svg {
+  transform: rotate(90deg);
 }
 
-/* Formulario de contacto */
+/* Contacto*/
 #contact-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-width: 400px; 
   padding: 20px;
   border-radius: 10px;
   box-sizing: border-box;
-  flex: 1; 
-  position: relative; 
+  width: 600px; 
 }
 
-/* campos del formulario */
 #contact-form input,
 #contact-form textarea {
-  width: calc(100% ); /* retoque antioverflow */
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
-/* Botón de form input*/
 #contact-form button {
   background: #25d366;
   color: white;
@@ -378,28 +426,28 @@ canvas {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: auto; /*ancho del boton */
+  width: auto;
 }
 
 .contactenos {
   color: #1eec63;
   font-size: 25px;
   font-weight: bold;
-  margin-top: 0; /* Elimina el margen superior predeterminado */
+  margin-top: 0;
 }
 
-/* Línea divisoria */
 .contacto-container::before {
   content: "";
   position: absolute;
-  top: 50%; /* Centra verticalmente la línea */
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Ajusta el centrado */
-  width: 1px; 
-  height: 75%; 
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 75%;
   background-color: white;
-  opacity: 0.5; /
+  opacity: 0.5;
 }
+
 /* Footer */
 footer {
     background: rgba(0, 0, 0, 0.6);

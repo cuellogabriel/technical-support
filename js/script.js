@@ -50,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
+//Efecto de particulas del cursor 
 const canvas = document.getElementById('trail');
 const ctx = canvas.getContext('2d');
 
@@ -127,4 +126,29 @@ window.addEventListener('resize', () => {
   height = window.innerHeight;
   canvas.width = width;
   canvas.height = height;
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.servicio-item');
+  let index = 0;
+
+  function mostrarServicio(i) {
+    items.forEach(item => item.classList.remove('activo'));
+    items[i].classList.add('activo');
+  }
+
+  document.querySelector('.flecha.arriba').addEventListener('click', () => {
+    index = (index - 1 + items.length) % items.length;
+    mostrarServicio(index);
+  });
+
+  document.querySelector('.flecha.abajo').addEventListener('click', () => {
+    index = (index + 1) % items.length;
+    mostrarServicio(index);
+  });
+
+  mostrarServicio(index);
 });
