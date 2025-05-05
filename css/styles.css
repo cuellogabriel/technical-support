@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 80px 0 0 0;
     background-color: #121212;
     color: #fff;
 }
@@ -19,9 +19,7 @@ canvas {
   
 }
 
-
-  
-/* bara de navegacion */
+/* barra de navegacion */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -46,8 +44,6 @@ canvas {
     right: 20px;
     position: relative;
 }
-
-
 
 .nav-links li {
     display: flex;
@@ -88,11 +84,10 @@ canvas {
     height: 100%;
     object-fit: cover;
 }
-  
 
 /* Secciones */
 .section {
-    padding: 100px 20px;
+    padding: 50px 20px;
     text-align: center;
 }
 
@@ -113,7 +108,6 @@ canvas {
     margin: auto;
     padding: 40px 20px;
     gap: 40px;
-    top: 50px;
     position: relative;
 }
 
@@ -158,7 +152,6 @@ canvas {
     position: relative;
     bottom: 10px;
     color: #1eec63;
-
 }
 
 .titulo3{
@@ -233,7 +226,6 @@ canvas {
   display: flex;
   flex-direction: column; 
   align-items: center; 
-  
 }
 
 .info-image {
@@ -280,7 +272,6 @@ canvas {
   }
 }
 
-
 /*estilos general para form y servicios*/
 
 .contacto-container {
@@ -298,6 +289,7 @@ canvas {
   flex-direction: row; 
 }
 
+/* carrusel */
 .servicios-container {
   text-align: center;
   color: white;
@@ -311,86 +303,86 @@ canvas {
   color: #1eec63;
   font-size: 25px;
   font-weight: bold;
-  bottom: 77px;
   left: 140px;
+  bottom: 50px;
 }
 
 .servicios-carrusel {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  height: 200px;
+  justify-content: space-between;
+  height: 150px;
+  width: 535px;
   overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 15px #1eec63;
+  padding: 10px 20px;
+  gap: 20px;
+  margin: auto;
+  transition: box-shadow 0.3s ease;
 }
 
 .servicio-visible {
-  height: 150px;
+  height: 210px;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .servicio-item {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 10px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(100%);
+  pointer-events: none;
 }
 
 .servicio-item.activo {
-  display: block;
+  opacity: 1;
+  position: relative;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .servicio-item.activo p {
-  max-height: 100px; 
+  max-height: 150px; 
   overflow-y: auto; 
   margin-bottom: 0; 
-}
-
-.lista-servicios-descripcion {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.5s ease-in-out;
 }
 
 .flecha {
   background: #1eec63;
   border: none;
   color: black;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  margin: 10px 0;
-  transition: color 0.2s ease;
-  border: 1px solid #ffd700;
+  margin: 0 15px;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #ffd700;
   border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #1eec63;
+  user-select: none;
 }
 
 .flecha:hover {
   color: #39ff90;
+  box-shadow: 0 0 15px #39ff90;
 }
-
-.lista-servicios-descripcion li {
-  height: 180px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.2;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  text-align: center;
-  color: white;
-  padding: 0 10px;
-}
-
-.lista-servicios-descripcion li.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
 .carousel-button.prev svg {
   transform: rotate(270deg);
 }
@@ -407,7 +399,7 @@ canvas {
   padding: 20px;
   border-radius: 10px;
   box-sizing: border-box;
-  width: 600px; 
+  width: 700px; 
 }
 
 #contact-form input,
@@ -551,24 +543,45 @@ footer {
 
    .whatsapp:hover{
     border-radius:50%px;
-    -webkit-border-radius:50%;
+    -webkit-border-radius: 50%;
     box-shadow: 0px 0px 15px 15px #1eec63;
     -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
    }
 
-
    /* estilos del logo */
-   .logoprincipal{
+   .logoprincipal {
     border-radius: 50%;
     height: 80px;
     width: 80px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     opacity: 0.9;
    }
-   
 
+   /* estilo del texto scroll */
+.marquesina {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffd700;
+    padding: 8px 0;
+    position: relative;
+     top: 50px;
+    font-size: 40px;
+}
 
-  
-  
+.marquesina-contenido {
+    display: inline-block;
+    white-space: nowrap;
+    animation: desplazamiento 20s linear infinite;
+}
+
+@keyframes desplazamiento {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
