@@ -550,6 +550,16 @@ footer {
     -webkit-transform: rotate(360deg);
    }
 
+    /*este no agarra - corregirlo*/
+    .precio-1:hover{
+      border-radius:20px;
+      -webkit-border-radius:15px;
+      box-shadow: 0px 0px 15px 15px #1eec63;
+      -webkit-box-shadow: 0px 0px 10px 10px #1eec63;
+      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+     }
+
    /* estilos del logo */
    .logoprincipal {
     border-radius: 50%;
@@ -574,7 +584,7 @@ footer {
 .marquesina-contenido {
     display: inline-block;
     white-space: nowrap;
-    animation: desplazamiento 20s linear infinite;
+    animation: desplazamiento 80s linear infinite;
 }
 
 @keyframes desplazamiento {
