@@ -10,8 +10,6 @@ navLinks.forEach(link => {
     });
 });
 
-
-
 // Envío de formulario de contacto
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async (e) => {
@@ -36,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook" width="30"></a>
                 <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram" width="30"></a>
             </div>
-            <div class="footer-text" style="text-align: center; flex-grow: 1; color : #1eec63; font-size: 30px;">
+            <div class="footer-text" style="text-align: center; flex-grow: 1; color : #1eec63;">
                 © 2025 Clases de Informática y Programación Web
             </div>
             <div class="payment-icons" style="display: flex; gap: 10px;">
@@ -46,9 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 });
-
-
-
 
 //Efecto de particulas del cursor 
 const canvas = document.getElementById('trail');
@@ -130,7 +125,7 @@ window.addEventListener('resize', () => {
 
 
 
-
+// servicios del carousel
 document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.servicio-item');
   let index = 0;
