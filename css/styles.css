@@ -140,16 +140,18 @@ canvas {
 /* Servicios*/
 .precio-1 {
     display: flex;
-    justify-content: center; /* Centra H */
-    align-items: center; /* Centra V */
+    justify-content: center; /* Centra contenido H */
+    align-items: center;     /* Centra contenido V */
     color: #1eec63;
     font-size: 28px;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10%;
     text-align: center;
     pointer-events: auto;
     height: 50px;
+    max-width: 1040px;
+    margin: 0 auto;       /* <-- Esto centra el h2 */
+    
 }
 
 /*Extras*/
@@ -609,37 +611,67 @@ footer {
         margin-left: 10px;
     }
 
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0.85);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        transition: max-height 0.4s ease;
-    }
+    .section.menu-open {
+  margin-top: 300px; /* o el tamaño que ocupe tu menú desplegado */
+  transition: margin-top 0.3s ease;
+}
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 28px;
+    padding: 10px 15px;
+    user-select: none;
+    color: white;
+    position: relative;
+    z-index: 1100; /* Siempre encima del menú */
+    background: transparent;
+    border: none;
+}
 
-    .nav-links li {
-        text-align: center;
-        padding: 10px 0;
-    }
+.nav-links {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 60px; /* Debe coincidir con la altura de tu navbar */
+    left: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: max-height 0.4s ease;
+    z-index: 1000; /* Menú debajo del botón toggle */
+}
 
-    .menu-toggle {
-        display: block;
-    }
+.nav-links.active {
+    max-height: 300px; /* O un valor alto que cubra el menú */
+    padding: 10px 0;
+}
 
-    .nav-links.active {
-        padding: 10px 0;
-        display: flex;
-        flex-direction: column;
-        max-height: none; /* Remove fixed max-height to allow dynamic height */
-    }
+.nav-links li {
+    text-align: center;
+    padding: 10px 0;
+}
 
+.nav-links li a.stilo {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+}
 
+   /* Contenido principal, con margen inicial para barra */
+.main-content {
+  margin-top: 60px; /* altura de la barra fija */
+  transition: margin-top 0.4s ease;
+}
+
+/* Cuando menú está abierto, aumenta el margen para separar el contenido */
+.main-content.menu-open {
+  margin-top: 310px; /* 60px barra + 250px menú desplegado */
+}
     .info-container {
         flex-direction: column;
         padding: 20px 10px;

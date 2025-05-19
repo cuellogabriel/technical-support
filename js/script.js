@@ -11,17 +11,13 @@ navLinks.forEach(link => {
 });
 
 // Toggle accordion menu on mobile
-const menuToggle = document.getElementById('menu-toggle');
-const navLinksContainer = document.getElementById('nav-links');
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
 
-menuToggle.addEventListener('click', () => {
-    if (navLinksContainer.classList.contains('active')) {
-        navLinksContainer.style.maxHeight = null;
-        navLinksContainer.classList.remove('active');
-    } else {
-        navLinksContainer.classList.add('active');
-        navLinksContainer.style.maxHeight = navLinksContainer.scrollHeight + "px";
-    }
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 });
 
 // Envío de formulario de contacto
@@ -161,3 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mostrarServicio(index);
 });
+
+
+
+// estilos cambiando entre si
+ document.getElementById('toggleBtn').addEventListener('click', () => {
+    window.location.href = 'versionwhite.html'; // ir a la versión blanco y negro
+  });
