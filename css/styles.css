@@ -116,8 +116,8 @@ canvas {
     max-width: 1200px;
     margin: auto;
     padding: 40px 20px;
-    gap: 40px;
-    position: relative;
+    margin-top: 60px; 
+    gap: 40px; 
 }
 
 .column {
@@ -451,6 +451,7 @@ footer {
     padding: 20px;
     text-align: center;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+   
 }
 .social-icons img, .payment-icons img {
     width: 60px;
@@ -589,6 +590,7 @@ footer {
 @media (max-width: 780px) {
     body {
         overflow-x: hidden;
+        padding-top: 60px; /* Add padding to prevent content overlap with fixed navbar */
     }
 
     header {
@@ -598,6 +600,7 @@ footer {
     .navbar {
         flex-wrap: wrap;
         justify-content: space-between;
+        height: 60px; /* Fixed height for navbar */
     }
 
     .principal {
@@ -609,13 +612,15 @@ footer {
     .nav-links {
         flex-direction: column;
         width: 100%;
-        display: none;
+        max-height: 0;
+        overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
         position: absolute;
         top: 60px;
         left: 0;
-        padding: 10px 0;
+        padding: 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        transition: max-height 0.4s ease;
     }
 
     .nav-links li {
@@ -628,7 +633,10 @@ footer {
     }
 
     .nav-links.active {
+        padding: 10px 0;
         display: flex;
+        flex-direction: column;
+        max-height: none; /* Remove fixed max-height to allow dynamic height */
     }
 
 

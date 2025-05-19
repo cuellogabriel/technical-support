@@ -10,6 +10,20 @@ navLinks.forEach(link => {
     });
 });
 
+// Toggle accordion menu on mobile
+const menuToggle = document.getElementById('menu-toggle');
+const navLinksContainer = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+    if (navLinksContainer.classList.contains('active')) {
+        navLinksContainer.style.maxHeight = null;
+        navLinksContainer.classList.remove('active');
+    } else {
+        navLinksContainer.classList.add('active');
+        navLinksContainer.style.maxHeight = navLinksContainer.scrollHeight + "px";
+    }
+});
+
 // Envío de formulario de contacto
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async (e) => {
