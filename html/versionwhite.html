@@ -283,6 +283,45 @@ details p {
       z-index: 100;
     }
 
+/* Interruptor base */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Círculo interior */
+.switch::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 2px;
+  top: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Estado activado */
+#dark-mode-toggle:checked + .switch {
+  background-color: #4caf50;
+}
+
+/* Mueve el círculo a la derecha cuando está activado */
+#dark-mode-toggle:checked + .switch::before {
+  transform: translateX(24px);
+}
+
+/* Ocultar el checkbox */
+#dark-mode-toggle {
+  display: none;
+}
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -325,7 +364,8 @@ details p {
             <li><a class="stilo" href="#clases">Precios</a></li>
             <li><a class="stilo" href="#contacto">Contacto</a></li>
         </ul>
-     <button id="toggleBtn">Volver a versión normal</button>
+    <input type="checkbox" id="dark-mode-toggle">
+<label for="dark-mode-toggle" class="switch"></label>
     </nav>
 </header> 
 <section id="info" class="section">
@@ -500,7 +540,7 @@ details p {
       });
     }
 
-    document.getElementById('toggleBtn').addEventListener('click', () => {
+    document.getElementById('dark-mode-toggle').addEventListener('click', () => {
     window.location.href = 'index.html'; // volver a la versión normal
   });
   </script>

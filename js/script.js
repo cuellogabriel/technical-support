@@ -161,6 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // estilos cambiando entre si
- document.getElementById('toggleBtn').addEventListener('click', () => {
+ document.getElementById('dark-mode-toggle').addEventListener('click', () => {
     window.location.href = 'versionwhite.html'; // ir a la versión blanco y negro
   });
