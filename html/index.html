@@ -182,15 +182,16 @@
       </div>
     </div>
   
-      <form id="contact-form">
-        <h2 class="contactenos">Contacto</h2>
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="text" name="apellido" placeholder="Apellido" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="tel" name="telefono" placeholder="Número de teléfono" required>
-        <textarea name="mensaje" placeholder="Escribe tu consulta aquí..." class="textodearea" required></textarea>
-        <button type="submit" class="btn-1">Enviar</button>
-      </form>
+  <form id="contact-form" action="https://formspree.io/f/xdkzpzwn" method="POST">
+    <h2 class="contactenos">Contacto</h2>
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="apellido" placeholder="Apellido" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="telefono" placeholder="Número de teléfono" required>
+    <textarea name="mensaje" placeholder="Escribe tu consulta aquí..." class="textodearea" required></textarea>
+    <button type="submit" class="btn-1">Enviar</button>
+  </form>
+     <div id="form-respuesta" style="margin-top: 1rem; color: green; font-weight: bold;"></div>
     </div>
   </section>
     

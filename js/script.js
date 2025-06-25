@@ -22,18 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Envío de formulario de contacto
 const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', async (e) => {
+  const respuesta = document.getElementById('form-respuesta');
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    const mailtoLink = `mailto:robertogabrielcuello@gmail.com?subject=Consulta de ${data.nombre} ${data.apellido}&body=Email: ${data.email}%0D%0ATeléfono: ${data.telefono}%0D%0AConsulta: ${data.mensaje}`;
-    window.location.href = mailtoLink;
-    
-    alert('Tu consulta ha sido enviada correctamente.');
-    contactForm.reset();
-});
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (res.ok) {
+        respuesta.textContent = "✅ Tu consulta fue enviada correctamente.";
+        contactForm.reset();
+      } else {
+        respuesta.textContent = "❌ Ocurrió un error al enviar tu consulta. Probá más tarde.";
+        respuesta.style.color = "red";
+      }
+    } catch (error) {
+      respuesta.textContent = "❌ No se pudo enviar el formulario. Revisa tu conexión.";
+      respuesta.style.color = "red";
+    }
+  });
 
 // Ajuste del footer
 document.addEventListener('DOMContentLoaded', () => {
