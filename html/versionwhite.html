@@ -322,6 +322,45 @@ details p {
 #dark-mode-toggle {
   display: none;
 }
+
+.modal-detalle {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: white;
+  color: #222;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-size: 1rem;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-contenido h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -475,6 +514,7 @@ details p {
     <details>
       <summary>Soporte IT</summary>
       <p>Diagnóstico y solución de problemas técnicos 24/7.</p>
+      <button class="btn-detalles" data-titulo="Soporte IT" data-detalle="Brindamos soporte técnico remoto y presencial las 24 horas, los 7 días de la semana. Nos especializamos en la configuración y mantenimiento de redes, gestión proactiva de hardware y software, respaldo y recuperación de datos, instalación de sistemas operativos, configuración de servidores, y asistencia personalizada para usuarios finales. Garantizamos continuidad operativa, seguridad informática y respuesta ágil ante cualquier incidente técnico.">Ver Detalles</button>
     </details>
     <details>
       <summary>Reclutamiento IT</summary>
@@ -518,6 +558,13 @@ details p {
     </video>
 
    </section>
+   <div class="modal-detalle" id="modal-detalle">
+  <div class="modal-contenido">
+    <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+    <h3 id="modal-titulo" class="titulomodal">Título del Servicio</h3>
+    <p id="modal-descripcion">Descripción del servicio...</p>
+  </div>
+</div>
    <script src="https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.min.js"></script>
   <script>
     // Lógica para tabs
@@ -542,6 +589,31 @@ details p {
     document.getElementById('dark-mode-toggle').addEventListener('click', () => {
     window.location.href = 'index.html'; // volver a la versión normal
   });
+
+
+    const modal = document.getElementById('modal-detalle');
+  const cerrarModal = document.getElementById('cerrar-modal');
+  const modalTitulo = document.getElementById('modal-titulo');
+  const modalDescripcion = document.getElementById('modal-descripcion');
+
+  document.querySelectorAll('.btn-detalles').forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalTitulo.textContent = btn.getAttribute('data-titulo');
+      modalDescripcion.textContent = btn.getAttribute('data-detalle');
+      modal.style.display = 'flex';
+    });
+  });
+
+  cerrarModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
   </script>
+
 </body>
 </html>

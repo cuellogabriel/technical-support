@@ -164,3 +164,33 @@ document.addEventListener('DOMContentLoaded', () => {
  document.getElementById('dark-mode-toggle').addEventListener('click', () => {
     window.location.href = 'versionwhite.html'; // ir a la versión blanco y negro
   });
+
+
+  //btn-detalle
+ const btnDetalles = document.querySelector('.btn-detalles');
+const modal = document.getElementById('modal-detalle');
+const cerrarModal = document.getElementById('cerrar-modal');
+const modalTitulo = document.getElementById('modal-titulo');
+const modalDescripcion = document.getElementById('modal-descripcion');
+
+btnDetalles.addEventListener('click', () => {
+  const servicioActivo = document.querySelector('.servicio-item.activo');
+  const titulo = servicioActivo.querySelector('h3').innerText;
+  const descripcion = servicioActivo.getAttribute('data-detalle');
+
+  modalTitulo.textContent = titulo;
+  modalDescripcion.textContent = descripcion;
+
+  modal.style.display = 'flex';
+});
+
+cerrarModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Cerrar modal si se hace click fuera del contenido
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});

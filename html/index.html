@@ -129,32 +129,54 @@
 </main> 
 
 <section id="contacto" class="section">
-    <div class="contacto-container">
-        <div class="servicios-container">
-            <h2 class="titulo-servicio">Servicios que Ofrecemos</h2>
-            <div class="servicios-carrusel">
-              <button class="flecha arriba" class="parriva">&#9650;</button>
-              <div class="servicio-visible">
-                <div class="servicio-item activo">
-                  <h3>Desarrollo Web</h3>
-                  <p>Creamos  sitios web a medida, desde landings hasta plataformas complejas.</p>
-                </div>
-                <div class="servicio-item">
-                  <h3>Soporte IT</h3>
-                  <p>Identificación, diagnóstico y resolución de problemas técnicos las 24hs al dia</p>
-                </div>
-                <div class="servicio-item">
-                  <h3>Reclutamiento IT</h3>
-                  <p>Encontramos  los profesional destacantes mas calificados para tu empresa..</p>
-                </div>
-                <div class="servicio-item">
-                  <h3>Marketing Digital</h3>
-                  <p>Implementamos las mejores estrategias para aumentar tus ventas/visibilidad</p>
-                </div>
-              </div>
-              <button class="flecha abajo">&#9660;</button>
-            </div>
+  <div class="contacto-container">
+    
+    <!-- Servicios -->
+    <div class="servicios-container">
+      <h2 class="titulo-servicio">Servicios que Ofrecemos</h2>
+      
+      <div class="servicios-carrusel">
+        <button class="flecha arriba">&#9650;</button>
+        
+        <div class="servicio-visible">
+          <div class="servicio-item activo" data-detalle="Contamos con amplia experiencia en el desarrollo de soluciones web de alto rendimiento, adaptadas a las necesidades específicas de cada cliente. Diseñamos y programamos sitios completamente personalizados: desde landing pages optimizadas para conversión, hasta plataformas e-commerce robustas, sistemas institucionales y paneles de administración intuitivos. Nuestro enfoque combina diseño UX/UI profesional, desarrollo frontend y backend escalable, integración con APIs y pasarelas de pago, y estrategias SEO avanzadas. Cada proyecto es ejecutado con estándares de calidad, seguridad y performance que garantizan resultados sólidos y sostenibles en el tiempo.">
+            <h3>Desarrollo Web</h3>
+            <p>Creamos sitios web a medida, desde landings hasta plataformas complejas.</p>
           </div>
+          <div class="servicio-item" data-detalle="Brindamos soporte técnico remoto y presencial las 24 horas, los 7 días de la semana. Nos especializamos en la configuración y mantenimiento de redes, gestión proactiva de hardware y software, respaldo y recuperación de datos, instalación de sistemas operativos, configuración de servidores, y asistencia personalizada para usuarios finales. Garantizamos continuidad operativa, seguridad informática y respuesta ágil ante cualquier incidente técnico.">
+            <h3>Soporte IT</h3>
+            <p>Identificación, diagnóstico y resolución de problemas técnicos las 24hs al día.</p>
+          </div>
+          <div class="servicio-item" data-detalle="Realizamos búsquedas laborales para puestos IT con enfoque técnico y cultural. Usamos plataformas como LinkedIn Recruiter - HackerRank - vasrias mas , sumamos entrevistas técnicas personalizadas 100% al puesto requerido con un alto grado de conocimientos sobre el mismo. Encontramos el mejor talento calificado según tus necesidades específicas.">
+            <h3>Reclutamiento IT</h3>
+            <p>Encontramos los profesionales más calificados para tu empresa.</p>
+          </div>
+          <div class="servicio-item" data-detalle="Diseñamos campañas efectivas en redes sociales, Google Ads, email - marketing y SEO. Optimizamos tu presencia digital con análisis de métricas, segmentación precisa y estrategias de contenido que aumentan tus conversiones.">
+            <h3>Marketing Digital</h3>
+            <p>Implementamos las mejores estrategias para aumentar tus ventas/visibilidad.</p>
+          </div>
+           <div class="servicio-item" data-detalle="Ofrecemos un servicio integral de diseño gráfico y modelado 3D orientado a la creación de piezas visuales impactantes y prototipos de alta precisión. Nos especializamos en branding, diseño de identidad visual, material promocional, renders hiperrealistas y modelado para impresión 3D. Utilizamos software profesional como Adobe Creative Suite, Blender y Fusion 360 para garantizar resultados de calidad superior. Además, contamos con equipos de impresión 3D FDM y SLA que nos permiten fabricar piezas funcionales, maquetas, packaging, objetos decorativos o técnicos en una amplia variedad de materiales. Combinamos creatividad y tecnología para transformar ideas en soluciones visuales y físicas concretas.">
+            <h3>Diseño Grafico - Impresiones 3D</h3>
+            <p>Diseños visuales  y modelados + Diseño 3D e impresiones de alta precision</p>
+          </div>
+           
+
+          <!-- BOTÓN DE DETALLES -->
+          <button class="btn-detalles">Ver Detalles</button>
+        </div>
+
+        <button class="flecha abajo">&#9660;</button>
+      </div>
+
+      <!-- MODAL DETALLE -->
+      <div class="modal-detalle" id="modal-detalle">
+        <div class="modal-contenido">
+          <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+          <h3 id="modal-titulo" class="titulomodal">Título del Servicio</h3>
+          <p id="modal-descripcion">Descripción del servicio activo...</p>
+        </div>
+      </div>
+    </div>
   
       <form id="contact-form">
         <h2 class="contactenos">Contacto</h2>
