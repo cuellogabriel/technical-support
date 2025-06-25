@@ -323,6 +323,24 @@ details p {
   display: none;
 }
 
+.btn-detalles {
+  margin-top: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-detalles:hover {
+  background-color: #004fa3;
+  transform: scale(1.03);
+}
+
 .modal-detalle {
   display: none;
   position: fixed;
@@ -353,7 +371,7 @@ details p {
   top: 10px;
   right: 15px;
   font-size: 1.5rem;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -510,6 +528,7 @@ details p {
     <details open>
       <summary>Desarrollo Web</summary>
       <p>Creación de sitios web a medida: landings, tiendas online y plataformas completas.</p>
+      <button class="btn-detalles" data-titulo="Desarrollo Web" data-detalle="Contamos con amplia experiencia en el desarrollo de soluciones web de alto rendimiento, adaptadas a las necesidades específicas de cada cliente. Diseñamos y programamos sitios completamente personalizados: desde landing pages optimizadas para conversión, hasta plataformas e-commerce robustas, sistemas institucionales y paneles de administración intuitivos. Nuestro enfoque combina diseño UX/UI profesional, desarrollo frontend y backend escalable, integración con APIs y pasarelas de pago, y estrategias SEO avanzadas. Cada proyecto es ejecutado con estándares de calidad, seguridad y performance que garantizan resultados sólidos y sostenibles en el tiempo.">Ver Detalles</button>
     </details>
     <details>
       <summary>Soporte IT</summary>
@@ -519,10 +538,22 @@ details p {
     <details>
       <summary>Reclutamiento IT</summary>
       <p>Encontramos los profesionales más calificados para tu empresa.</p>
+      <button class="btn-detalles" data-titulo="Recruiter" data-detalle="Realizamos búsquedas laborales para puestos IT con enfoque técnico y cultural. Usamos plataformas como LinkedIn Recruiter - HackerRank - vasrias mas , sumamos entrevistas técnicas personalizadas 100% al puesto requerido con un alto grado de conocimientos sobre el mismo. Encontramos el mejor talento calificado según tus necesidades específicas.">Ver Detalles</button>
     </details>
     <details>
       <summary>Marketing Digital</summary>
       <p>Estrategias efectivas para aumentar ventas y visibilidad.</p>
+      <button class="btn-detalles" data-titulo="Marketing Digital" data-detalle="Diseñamos campañas efectivas en redes sociales, Google Ads, email - marketing y SEO. Optimizamos tu presencia digital con análisis de métricas, segmentación precisa y estrategias de contenido que aumentan tus conversiones.">Ver Detalles</button>
+    </details>
+    <details>
+    <summary>Diseño Grafico - Impresiones 3D</summary>
+    <p>Diseños visuales  y modelados + Diseño 3D e impresiones de alta precision</p>
+    <button class="btn-detalles" data-titulo="Marketing Digital" data-detalle="Ofrecemos un servicio integral de diseño gráfico y modelado 3D orientado a la creación de piezas visuales impactantes y prototipos de alta precisión. Nos especializamos en branding, diseño de identidad visual, material promocional, renders hiperrealistas y modelado para impresión 3D. Utilizamos software profesional como Adobe Creative Suite, Blender y Fusion 360 para garantizar resultados de calidad superior. Además, contamos con equipos de impresión 3D FDM y SLA que nos permiten fabricar piezas funcionales, maquetas, packaging, objetos decorativos o técnicos en una amplia variedad de materiales. Combinamos creatividad y tecnología para transformar ideas en soluciones visuales y físicas concretas.">Ver Detalles</button>
+    </details>  
+    <details>
+      <summary>Agricultura De Precisión</summary>
+      <p>Asistencia especializada ante fallas en monitores, GPS y sistemas de agricultura</p>
+      <button class="btn-detalles" data-titulo="Agricultura De Precisión" data-detalle="Ofrecemos asistencia técnica especializada para tecnologías aplicadas al agro: monitores de siembra, GPS, software de gestión de maquinaria y agricultura de precisión. Solucionamos problemas con pantallas que no encienden, sensores desconectados, errores de señal satelital, configuraciones incorrectas y más. Trabajamos con equipos de marcas como Trimble, John Deere, AgLeader, entre otros. Ideal para productores que dependen de sus equipos en plena campaña de siembra o cosecha. Atención remota o presencial en zonas rurales.">Ver Detalles</button>
     </details>
   </div>
 
