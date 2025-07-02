@@ -210,3 +210,15 @@ window.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });
+
+
+ const overlay = document.getElementById("introOverlay");
+  const sound = document.getElementById("portalSound");
+
+  overlay.addEventListener("click", () => {
+    sound.play();
+    overlay.classList.add("fadeOut");
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 1000); // espera para mostrar el sitio
+  });
