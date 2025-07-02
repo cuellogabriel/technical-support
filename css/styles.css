@@ -37,11 +37,11 @@ nav {
   justify-content: space-between; 
   padding: 0.5rem 2rem; 
   background-color: #111;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 .nav-links li a {
-  color: #f0f0f0;
+  color: #00ff99;
   text-decoration: none;
   font-size: 1rem;
 }
@@ -50,6 +50,11 @@ nav {
 height: 70px;
 width: 70px;
 border-radius: 50%;
+}
+
+.logoprincipal:hover {
+  background-color: #00aa55;
+  transform: scale(1.05);
 }
 
 .navbar .logo {
@@ -99,6 +104,7 @@ border-radius: 50%;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 /* Círculo interior */
@@ -135,6 +141,7 @@ border-radius: 50%;
   background: rgba(20, 20, 20, 0.85);
   border-radius: 15px;
   margin-top: 140px;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 .info-container {
@@ -156,14 +163,14 @@ border-radius: 50%;
 .titulo2 {
   font-size: 1.9rem;
   margin-bottom: 1rem;
-  color: #4caf50;
+  color: #00ff99;
 }
 
 .titulo3 {
   font-size: 1.6rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  color: #a5d6a7;
+  color: #00ff99;
 }
 
 .abajo {
@@ -172,7 +179,7 @@ border-radius: 50%;
 
 .divider {
   width: 2px;
-  background: #4caf50;
+  background: #00ff99;
   border-radius: 10px;
   margin: 0 1rem;
 }
@@ -181,13 +188,15 @@ border-radius: 50%;
 main {
   max-width: 1200px;
   margin: 0 auto 3rem auto;
-  padding: 0 2rem;
+  padding: 0 rem;
+  box-shadow: 0 0 25px  rgba(0, 255, 100, 0.2);
+  border-radius: 20px;
 }
 
 .precio-1 {
   text-align: center;
   font-size: 2rem;
-  color: #4caf50;
+  color: #00ff99;
   margin-bottom: 1.5rem;
 }
 
@@ -218,7 +227,7 @@ main {
 
 .tab.active,
 .tab:hover {
-  background-color: #4caf50;
+  background-color: #00ff99;
   color: white;
 }
 
@@ -256,7 +265,7 @@ main {
 }
 
 .info-text h2 {
-  color: #4caf50;
+  color:#00ff99;
   margin-bottom: 1rem;
 }
 
@@ -284,7 +293,7 @@ main {
 
 .price-btn {
   margin-top: 1rem;
-  background-color: #4caf50;
+  background-color: #00ff99;
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 20px;
@@ -303,6 +312,7 @@ main {
 .section#contacto {
   max-width: 1200px;
   margin: 3rem auto;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 .contacto-container {
@@ -334,7 +344,7 @@ form#contact-form {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #4caf50;
+  color: #00ff99;
 }
 
 .servicios-carrusel {
@@ -368,7 +378,7 @@ form#contact-form {
 }
 
 .servicio-item h3 {
-  color: #a5d6a7;
+  color: #00ff99;
   margin-bottom: 0.5rem;
 }
 
@@ -382,7 +392,7 @@ form#contact-form {
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  color: #333;
+  color: #252525;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -391,14 +401,16 @@ form#contact-form {
 
 .flecha.arriba {
   top: 0;
-  background-color: #45a049;
+  background-color: #00ff99;
   border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 .flecha.abajo {
   bottom: 0;
-   background-color: #45a049;
+   background-color: #00ff99;
   border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 /* Formulario */
@@ -436,7 +448,7 @@ form#contact-form textarea:focus {
 }
 
 .btn-1 {
-  background-color: #4caf50;
+  background-color: #00ff99;;
   color: white;
   border: none;
   padding: 1rem;
@@ -455,7 +467,7 @@ form#contact-form textarea:focus {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #4caf50;
+  color: #00ff99;
 }
 
 /* Footer */
@@ -465,29 +477,51 @@ footer {
   text-align: center;
   color: #ccc;
   margin-top: 3rem;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.footer-text {
+  flex-grow: 1;
+  color: #1eec63;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 0 1rem;
 }
 
 footer .social-icons,
 footer .payment-icons {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+footer .social-icons {
+  justify-content: flex-start;
+}
+
+footer .payment-icons {
+  justify-content: flex-end;
 }
 
 footer img {
-  max-height: 40px;
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 footer img:hover {
-  filter: brightness(0.7) invert(0.6);
+  background-color: #00aa55;
+  transform: scale(1.05);
 }
 
-footer p {
-  font-size: 0.9rem;
-}
 
 /* WhatsApp  */
 .whatsapp {
@@ -525,13 +559,12 @@ footer p {
 }
 
 .principal{
-  color: #388e3c;
+  color: #00ff99;
 }
 
 .btn-detalles {
-  
   padding: 0.5rem 1rem;
-  background-color: #4caf50;
+  background-color: #00ff99;;
   color: white;
   border: none;
   padding: 1rem;
@@ -545,7 +578,8 @@ footer p {
 }
 
 .btn-detalles:hover {
-  background-color: #45a049;
+  background-color: #00aa55;
+  transform: scale(1.05);
 }
 
 .modal-detalle {
@@ -584,6 +618,63 @@ footer p {
 .modal-contenido h3 {
   text-align: center;
   margin-bottom: 1rem;
+  color: #00cc66;
+}
+
+
+/* turnos de motivacion*/
+.acompanamiento {
+  background: rgba(3, 3, 3, 0.26);
+  margin: 50px auto;
+  padding: 40px;
+  max-width: 1200px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+  color: #fff;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.acompanamiento h2 {
+  font-size: 2em;
+  color: #00ff99;
+  margin-bottom: 20px;
+}
+
+.acompanamiento .descripcion {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.acompanamiento .beneficios ul {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  padding-left: 0;
+}
+
+.acompanamiento .beneficios li {
+  list-style: none;
+  padding: 8px 0;
+  font-size: 1.05em;
+}
+
+.turno-btn a {
+  background-color: #00cc66;
+  color: #fff;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.turno-btn a:hover {
+  background-color: #00aa55;
+  transform: scale(1.05);
 }
 
 /* Media Queries */
@@ -604,6 +695,12 @@ footer p {
 
   .menu-toggle {
     display: block;
+  }
+
+  .logoprincipal{
+    display: flex;
+    position: relative;
+    right: 20px;
   }
 
   .nav-links.active {
@@ -656,5 +753,37 @@ background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   top: 40px;
 }
+
+main{
+  margin: 30px;
+}
+
+.acompanamiento{
+  margin: 30px;
+}
+
+
+.footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-text {
+    flex-grow: unset;
+    padding: 0 1rem;
+  }
+
+  .social-icons,
+  .payment-icons {
+    justify-content: center;
+  }
+
+  footer img {
+    height: 40px;
+    width: 40px;
+  }
+
 
 }

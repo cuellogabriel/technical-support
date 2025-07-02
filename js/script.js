@@ -55,13 +55,13 @@ const contactForm = document.getElementById('contact-form');
 document.addEventListener('DOMContentLoaded', () => {
     const footer = document.querySelector('footer');
     footer.innerHTML = `
-        <div class="footer-container" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0, 0, 0, 0.0); color: white;">
-            <div class="social-icons" style="display: flex; gap: 10px;">
-                <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook" width="30"></a>
-                <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram" width="30"></a>
+        <div class="footer-container">
+            <div class="social-icons" >
+                <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook" ></a>
+                <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram" ></a>
             </div>
             <div class="footer-text" style="text-align: center; flex-grow: 1; color : #1eec63;">
-                © 2025 Clases de Informática y Programación Web
+                &copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos
             </div>
             <div class="payment-icons" style="display: flex; gap: 10px;">
                 <a href="#" target="_blank"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
