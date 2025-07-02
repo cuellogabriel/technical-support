@@ -694,9 +694,10 @@ footer img:hover {
 }
 
 .introContent img {
-  width: 180px;
+  width: 280px;
   animation: glow 2s ease-in-out infinite;
   margin-bottom: 20px;
+  border-radius: 50%;
 }
 
 .introContent h1 {
@@ -706,6 +707,8 @@ footer img:hover {
   font-family: 'Orbitron', sans-serif;
   animation: flicker 1.5s infinite;
   cursor: pointer;
+  position: relative;
+  right: 18px;
 }
 
 @keyframes glow {
