@@ -162,7 +162,9 @@
       cursor: pointer;
     }
 
-   .servicios-contacto {
+.servicios-contacto {
+  max-width: 97%;
+  margin: 0 auto; /* Esto centra el bloque */
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -262,18 +264,45 @@ details p {
       cursor: pointer;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--dark-color);
-      color: white;
-    }
+footer {
+  background-color: #fffcfc;
+  color: black;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
 
-    .social-icons img, .payment-icons img {
-      height: 30px;
-      margin: 0 0.5rem;
-      border-radius: 8px;
-    }
+footer .social-icons,
+footer .payment-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap;
+  order: 2; /* El texto queda en el centro */
+  flex: 1;
+  text-align: center;
+}
+
+footer .social-icons {
+  order: 1;
+}
+
+footer .payment-icons {
+  order: 3;
+}
+
+footer img {
+  height: 60px;
+  width: 60px;
+}
 
     .whatsapp {
       position: fixed;
@@ -281,6 +310,8 @@ details p {
       right: 1rem;
       width: 60px;
       z-index: 100;
+      border-radius: 50%;
+      bottom: 120px;
     }
 
 /* Interruptor base */
@@ -387,7 +418,7 @@ details p {
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin: 3rem auto;
-  max-width: 900px;
+  max-width: 97%;
   text-align: center;
 }
 
@@ -455,17 +486,65 @@ details p {
         display: flex;
       }
 
-      
+     footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  footer .social-icons,
+  footer .payment-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  footer .social-icons img,
+  footer .payment-icons img {
+    max-width: 40px;
+    height: auto;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    word-break: break-word;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden; 
+  }
+
+  .logoprincipal{
+    position: relative;
+    right: 20px;
+
+  }
+
+  .mobile{
+    position: relative;
+    left: 60px;
+  }
+
+  .mobile-contacto{
+    position: relative;
+    left: 90px;
+  }
+
     }
   </style>
   <script defer src="../js/toggleMode.js"></script>
 </head>
 <body>
-    <canvas id="trail"></canvas>
  <header>
     <nav class="navbar">
         <div class="logo">
-            <img src="../pictures/LogoPrincipal.JPG" class="logoprincipal" alt="">
+            <img src="../pictures/logo1.png" class="logoprincipal" style="border-radius: 50%;" alt="">
         </div>
         <h1 class="principal">Clases de Informática y Programación</h1>
         <div class="menu-toggle" id="menu-toggle">
@@ -581,7 +660,7 @@ details p {
 
 <section class="servicios-contacto" id="contacto">
   <div class="servicios">
-    <h2>Servicios que Ofrecemos</h2>
+    <h2 class="mobile">Servicios que Ofrecemos</h2>
     <details open>
       <summary>Desarrollo Web</summary>
       <p>Creación de sitios web a medida: landings, tiendas online y plataformas completas.</p>
@@ -615,7 +694,7 @@ details p {
   </div>
 
   <div class="contacto">
-    <h2>Contacto</h2>
+    <h2 class="mobile-contacto">Contacto</h2>
     <form>
       <input type="text" placeholder="Nombre">
       <input type="text" placeholder="Apellido">
@@ -649,9 +728,9 @@ details p {
         </div>
         <div class="payment-icons">
             <a href="https://www.mercadopago.com.ar" target="_blank"><img src="../pictures/mercadopago1.png" alt="Mercado Pago"></a>
-            <a href="https://www.bancodigital.com" target="_blank"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI"></a>
+            <a href="https://www.bancodigital.com" target="_blank"><img src="../pictures/cuentadni1.jpg" style="border-radius: 50%;" alt="Cuenta DNI"></a>
         </div>
-        <p>&copy; 2025 Clases de Informática y Programación Web</p>
+        <p>&copy;2025 Servicios de soporte - ayuda y clases . </p>
     </footer>
     
     <a href="https://wa.me/2324342375"  target="_blank"><img class="whatsapp" src="../pictures/whatsp 1.avif" alt=""></a>
