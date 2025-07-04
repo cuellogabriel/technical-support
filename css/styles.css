@@ -40,21 +40,29 @@ nav {
   box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
-.nav-links li a {
+.nav-links li a.stilo {
   color: #00ff99;
   text-decoration: none;
   font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform: translateX(0) scale(1);
+}
+
+.nav-links li a.stilo:hover {
+  color: #0ff;
+  transform: translateX(3px) scale(1.2);
 }
 
 .logoprincipal{
-height: 70px;
-width: 70px;
-border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
 }
 
 .logoprincipal:hover {
   background-color: #00aa55;
   transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar .logo {
@@ -87,11 +95,6 @@ border-radius: 50%;
   align-items: center; 
   margin: 0;
   padding: 0;
-}
-
-
-.nav-links li a.stilo:hover {
-  color: #4caf50;
 }
 
 /* Interruptor base */
@@ -677,20 +680,33 @@ footer img:hover {
   transform: scale(1.05);
 }
 
+
+/*presentacion*/
 #introOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, #000 0%, #0f0f0f 100%);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   flex-direction: column;
-  animation: bgPulse 4s infinite alternate;
+  overflow: hidden;
   transition: all 0.8s ease-in-out;
+}
+
+#introVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5) contrast(1.2) saturate(1.3);
 }
 
 .introContent img {
@@ -701,14 +717,20 @@ footer img:hover {
 }
 
 .introContent h1 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   color: #00ffcc;
-  text-shadow: 0 0 15px #00ffcc, 0 0 40px #00ffcc;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Audiowide', sans-serif;
   animation: flicker 1.5s infinite;
-  cursor: pointer;
   position: relative;
-  right: 18px;
+  right: 48px;
+  text-shadow:
+    0 1px 0 #0ff,
+    0 2px 0 #0cc,
+    0 3px 0 #099,
+    0 4px 5px rgba(0, 255, 204, 0.3),
+    0 0 20px #0ff,
+    0 0 40px #0ff;
+    
 }
 
 @keyframes glow {

@@ -211,7 +211,7 @@ window.addEventListener('click', (e) => {
   }
 });
 
-
+//presentacion
  const overlay = document.getElementById("introOverlay");
   const sound = document.getElementById("portalSound");
 
@@ -222,3 +222,5 @@ window.addEventListener('click', (e) => {
       overlay.style.display = "none";
     }, 1000); // espera para mostrar el sitio
   });
+
+
