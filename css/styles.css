@@ -53,6 +53,20 @@ nav {
   transform: translateX(3px) scale(1.2);
 }
 
+nav ul li a {
+  color: inherit;          
+  text-decoration: none;    
+}
+
+nav ul li a:visited {
+  color: inherit;           
+}
+
+.acompanamiento-a a:hover{
+ 
+  color: #0ff;     /* Cambialo por el color que usás al pasar el mouse */
+}
+
 .logoprincipal{
   height: 70px;
   width: 70px;
@@ -99,38 +113,39 @@ nav {
 
 /* Interruptor base */
 .switch {
-  position: relative;
   display: inline-block;
-  width: 50px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50px;
+  padding: 10px 20px;
+  background-color: #00ff99;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 5px 0 #4caf50;
+  text-align: center;
+  user-select: none;
 }
 
-/* Círculo interior */
-.switch::before {
-  content: "";
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  left: 2px;
-  top: 2px;
-  background-color: white;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+/* Efecto  */
+.switch:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #999;
 }
 
 #dark-mode-toggle:checked + .switch {
   background-color: #4caf50;
+  color: white;
+  box-shadow: 0 5px 0 #2e7d32;
 }
 
-#dark-mode-toggle:checked + .switch::before {
-  transform: translateX(24px);
+#dark-mode-toggle:checked + .switch:active {
+  box-shadow: 0 1px 0 #2e7d32;
+  transform: translateY(4px);
 }
 
+/* Ocultamos  input  */
 #dark-mode-toggle {
   display: none;
 }
@@ -810,12 +825,12 @@ footer img:hover {
   position: relative;
   height: 573px;
   width: 300px;
-  right: 15px;
+  right: 5px;
 }
 
 form#contact-form {
   position: relative;
-  right: 15px;
+  right: 5px;
   height: 573px;
 }
 
@@ -864,5 +879,9 @@ main{
     width: 40px;
   }
 
+  .introContent{
+    position: relative;
+    left: 50px;
+  }
 
 }

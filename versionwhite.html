@@ -316,40 +316,39 @@ footer img {
 
 /* Interruptor base */
 .switch {
-  position: relative;
   display: inline-block;
-  width: 50px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50px;
+  padding: 10px 20px;
+  background-color: black;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 5px 0 #5a5a5a;
+  text-align: center;
+  user-select: none;
 }
 
-/* Círculo interior */
-.switch::before {
-  content: "";
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  left: 2px;
-  top: 2px;
-  background-color: white;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+/* Efecto  */
+.switch:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #999;
 }
 
-/* Estado activado */
 #dark-mode-toggle:checked + .switch {
   background-color: #4caf50;
+  color: white;
+  box-shadow: 0 5px 0 #2e7d32;
 }
 
-/* Mueve el círculo a la derecha cuando está activado */
-#dark-mode-toggle:checked + .switch::before {
-  transform: translateX(24px);
+#dark-mode-toggle:checked + .switch:active {
+  box-shadow: 0 1px 0 #2e7d32;
+  transform: translateY(4px);
 }
 
-/* Ocultar el checkbox */
+/* Ocultamos  input  */
 #dark-mode-toggle {
   display: none;
 }
@@ -527,13 +526,44 @@ footer img {
   }
 
   .mobile{
+    display: flex;
     position: relative;
     left: 60px;
+    width: 200px;
   }
 
   .mobile-contacto{
+    display: flex;
     position: relative;
     left: 90px;
+    width: 100px;
+  }
+
+  .divider{
+  display: none;
+  }
+
+  .servicios-contacto{
+    margin: 30px;
+  }
+
+  .acompanamiento{
+    margin: 30px;
+  }
+   
+  .whatsapp{
+    display: flex;
+    right: 0px;
+  }
+
+  .switch{
+    display: flex;
+    position: relative;
+    left: 20px;
+  }
+
+  .btn-wsp{
+    background-color: #0066cc;
   }
 
     }
@@ -556,6 +586,7 @@ footer img {
             <li><a class="stilo" href="#info">Metodología</a></li>
             <li><a class="stilo" href="#clases">Precios</a></li>
             <li><a class="stilo" href="#contacto">Contacto</a></li>
+            <li><a class="stilo" href="#acompañamiento">Acompañamiento</a></li>
         </ul>
     <input type="checkbox" id="dark-mode-toggle">
 <label for="dark-mode-toggle" class="switch"></label>
@@ -733,7 +764,7 @@ footer img {
         <p>&copy;2025 Servicios de soporte - ayuda y clases . </p>
     </footer>
     
-    <a href="https://wa.me/2324342375"  target="_blank"><img class="whatsapp" src="pictures/whatsp 1.avif" alt=""></a>
+    <a href="https://wa.me/2324342375"  target="_blank"><img class="whatsapp" src="pictures/wtsp.png" alt=""></a>
     <section id="video-fondo">
       <video autoplay muted loop id="bg-video">
         <source src="pictures/vid-1.mp4" type="video/mp4">
