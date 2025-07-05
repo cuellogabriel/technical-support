@@ -52,23 +52,106 @@ const contactForm = document.getElementById('contact-form');
   });
 
 // Ajuste del footer
+// Ajuste del footer con modal para Política de Privacidad y Términos
 document.addEventListener('DOMContentLoaded', () => {
-    const footer = document.querySelector('footer');
-    footer.innerHTML = `
-        <div class="footer-container">
-            <div class="social-icons" >
-                <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook" ></a>
-                <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram" ></a>
-            </div>
-            <div class="footer-text" style="text-align: center; flex-grow: 1; color : #1eec63;">
-                &copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos
-            </div>
-            <div class="payment-icons" style="display: flex; gap: 10px;">
-                <a href="#" target="_blank"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
-                <a href="#" target="_blank"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
-            </div>
+  const footer = document.querySelector('footer');
+  footer.innerHTML = `
+    <div class="footer-container" style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 10px;">
+      <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; flex-wrap: wrap;">
+        <div class="social-icons">
+          <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook"></a>
+          <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram"></a>
         </div>
-    `;
+        <div class="footer-text" style="text-align: center; flex-grow: 1; color: #1eec63;">
+          &copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos
+        </div>
+        <div class="payment-icons" style="display: flex; gap: 10px;">
+          <a href="#" target="_blank"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
+          <a href="#" target="_blank"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <button id="legal-toggle" style="background: none; color: #1eec63; border: none; cursor: pointer; text-decoration: underline;">
+          Política de Privacidad y Términos
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal para Política de Privacidad y Términos -->
+    <div id="legal-modal" style="
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    ">
+      <div style="
+        background: #222;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 800px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        color: white;
+        position: relative;
+        box-shadow: 0 0 15px rgba(0,0,0,0.8);
+        font-size: 14px;
+        text-align: left;
+      ">
+        <button id="legal-close" style="
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          background: transparent;
+          border: none;
+          font-size: 28px;
+          color: #1eec63;
+          cursor: pointer;
+          font-weight: bold;
+          line-height: 1;
+        ">&times;</button>
+
+        <h3 style="color: #1eec63;">Política de Privacidad</h3>
+        <p>En Tech Companion valoramos la privacidad de nuestros visitantes. Este sitio web no utiliza cookies ni tecnologías de rastreo.</p>
+        <p>Los datos que usted proporcione a través del formulario de contacto o por mensaje de WhatsApp (como nombre, correo electrónico o número de teléfono) serán utilizados exclusivamente para responder a su consulta o coordinar clases/servicios solicitados. No compartimos esta información con terceros.</p>
+        <p>Los pagos pueden realizarse mediante Mercado Pago, Cuenta DNI, transferencia bancaria o en efectivo. No almacenamos información financiera en este sitio.</p>
+        <p>Si tiene preguntas sobre esta política o desea que eliminemos sus datos, puede escribirnos a <strong>tu-email@gmail.com</strong>.</p>
+
+        <h3 style="color: #1eec63; margin-top: 20px;">Términos y Condiciones</h3>
+        <p>Tech Companion ofrece clases personalizadas, soporte técnico, desarrollo web y otros servicios relacionados con informática y tecnología. Al contratar un servicio, el usuario acepta los siguientes términos:</p>
+        <ul>
+          <li>Los pagos pueden realizarse por Mercado Pago, Cuenta DNI, transferencia o efectivo.</li>
+          <li>Los servicios no tienen una política de devolución fija, pero en caso de reclamo justificado, se evaluará cada caso para ofrecer una solución adecuada.</li>
+          <li>La calidad y duración de cada clase o servicio será acordada previamente con el cliente.</li>
+          <li>El contacto puede realizarse por correo electrónico o WhatsApp. Al hacerlo, el usuario acepta que Tech Companion lo contacte para coordinar servicios.</li>
+        </ul>
+        <p>Ante cualquier duda o reclamo, podés escribirnos a <strong>tu-email@gmail.com</strong>.</p>
+      </div>
+    </div>
+  `;
+
+  // Abrir modal
+  document.getElementById('legal-toggle').addEventListener('click', () => {
+    const modal = document.getElementById('legal-modal');
+    modal.style.display = 'flex';
+  });
+
+  // Cerrar modal con la X
+  document.getElementById('legal-close').addEventListener('click', () => {
+    const modal = document.getElementById('legal-modal');
+    modal.style.display = 'none';
+  });
+
+  // Cerrar modal si clickeo fuera del contenido
+  document.getElementById('legal-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'legal-modal') {
+      e.target.style.display = 'none';
+    }
+  });
 });
 
 //Efecto de particulas del cursor 

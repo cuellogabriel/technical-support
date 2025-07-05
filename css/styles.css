@@ -871,7 +871,10 @@ main{
 
   .social-icons,
   .payment-icons {
+    display: flex;
+    position: relative;
     justify-content: center;
+    left: 130px;
   }
 
   footer img {
