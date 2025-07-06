@@ -52,15 +52,14 @@ const contactForm = document.getElementById('contact-form');
   });
 
 // Ajuste del footer
-// Ajuste del footer con modal para Política de Privacidad y Términos
 document.addEventListener('DOMContentLoaded', () => {
   const footer = document.querySelector('footer');
   footer.innerHTML = `
     <div class="footer-container" style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 10px;">
       <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; flex-wrap: wrap;">
         <div class="social-icons">
-          <a href="#" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook"></a>
-          <a href="#" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram"></a>
+          <a href="https://www.facebook.com/profile.php?id=61578005793210" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/techcompanion_it/" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram"></a>
         </div>
         <div class="footer-text" style="text-align: center; flex-grow: 1; color: #1eec63;">
           &copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos
@@ -129,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <li>La calidad y duración de cada clase o servicio será acordada previamente con el cliente.</li>
           <li>El contacto puede realizarse por correo electrónico o WhatsApp. Al hacerlo, el usuario acepta que Tech Companion lo contacte para coordinar servicios.</li>
         </ul>
-        <p>Ante cualquier duda o reclamo, podés escribirnos a <strong>tu-email@gmail.com</strong>.</p>
+        <p>Ante cualquier duda o reclamo, podés escribirnos a <strong>myceosuport@gmail.com</strong>.</p>
       </div>
     </div>
   `;
