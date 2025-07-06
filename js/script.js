@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>En Tech Companion valoramos la privacidad de nuestros visitantes. Este sitio web no utiliza cookies ni tecnologías de rastreo.</p>
         <p>Los datos que usted proporcione a través del formulario de contacto o por mensaje de WhatsApp (como nombre, correo electrónico o número de teléfono) serán utilizados exclusivamente para responder a su consulta o coordinar clases/servicios solicitados. No compartimos esta información con terceros.</p>
         <p>Los pagos pueden realizarse mediante Mercado Pago, Cuenta DNI, transferencia bancaria o en efectivo. No almacenamos información financiera en este sitio.</p>
-        <p>Si tiene preguntas sobre esta política o desea que eliminemos sus datos, puede escribirnos a <strong>tu-email@gmail.com</strong>.</p>
+        <p>Si tiene preguntas sobre esta política o desea que eliminemos sus datos, puede escribirnos a <strong>myceosuport@gmail.com</strong>.</p>
 
         <h3 style="color: #1eec63; margin-top: 20px;">Términos y Condiciones</h3>
         <p>Tech Companion ofrece clases personalizadas, soporte técnico, desarrollo web y otros servicios relacionados con informática y tecnología. Al contratar un servicio, el usuario acepta los siguientes términos:</p>
@@ -134,19 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
 
-  // Abrir modal
+  // Abrir 
   document.getElementById('legal-toggle').addEventListener('click', () => {
     const modal = document.getElementById('legal-modal');
     modal.style.display = 'flex';
   });
 
-  // Cerrar modal con la X
+  // Cerrar  X
   document.getElementById('legal-close').addEventListener('click', () => {
     const modal = document.getElementById('legal-modal');
     modal.style.display = 'none';
   });
 
-  // Cerrar modal si clickeo fuera del contenido
+  // Cerrar modal si clickeo fuera
   document.getElementById('legal-modal').addEventListener('click', (e) => {
     if (e.target.id === 'legal-modal') {
       e.target.style.display = 'none';
