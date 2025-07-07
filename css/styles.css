@@ -917,9 +917,8 @@ main{
   }
 
    .principal {
-    font-size: 1.8rem; /* Tamaño más pequeño en móviles */
-    letter-spacing: 0.08em;
-    left: 15px;
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
   }
 
 }
