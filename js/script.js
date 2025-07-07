@@ -64,55 +64,24 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="footer-text" style="text-align: center; flex-grow: 1; color: #1eec63;">
           &copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos
         </div>
+        
         <div class="payment-icons" style="display: flex; gap: 10px;">
-          <a href="#" target="_blank"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
-          <a href="#" target="_blank"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
+          <a href="#" id="mercadoPagoBtn"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
+          <a href="#" id="cuentaDniBtn"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
         </div>
       </div>
 
-      <div style="margin-top: 10px;">
+      <div style="margin-top: 0px;">
         <button id="legal-toggle" style="background: none; color: #1eec63; border: none; cursor: pointer; text-decoration: underline;">
           Política de Privacidad y Términos
         </button>
       </div>
     </div>
 
-    <!-- Modal para Política de Privacidad y Términos -->
-    <div id="legal-modal" style="
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    ">
-      <div style="
-        background: #222;
-        padding: 20px;
-        border-radius: 8px;
-        max-width: 800px;
-        width: 90%;
-        max-height: 80vh;
-        overflow-y: auto;
-        color: white;
-        position: relative;
-        box-shadow: 0 0 15px rgba(0,0,0,0.8);
-        font-size: 14px;
-        text-align: left;
-      ">
-        <button id="legal-close" style="
-          position: absolute;
-          top: 10px;
-          right: 15px;
-          background: transparent;
-          border: none;
-          font-size: 28px;
-          color: #1eec63;
-          cursor: pointer;
-          font-weight: bold;
-          line-height: 1;
-        ">&times;</button>
+    <!-- Modal Política de Privacidad -->
+    <div id="legal-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 9999;">
+      <div style="background: #222; padding: 20px; border-radius: 8px; max-width: 800px; width: 90%; max-height: 80vh; overflow-y: auto; color: white; position: relative; box-shadow: 0 0 15px rgba(0,0,0,0.8); font-size: 14px; text-align: left;">
+        <button id="legal-close" style="position: absolute; top: 10px; right: 15px; background: transparent; border: none; font-size: 28px; color: #1eec63; cursor: pointer; font-weight: bold; line-height: 1;">&times;</button>
 
         <h3 style="color: #1eec63;">Política de Privacidad</h3>
         <p>En Tech Companion valoramos la privacidad de nuestros visitantes. Este sitio web no utiliza cookies ni tecnologías de rastreo.</p>
@@ -121,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>Si tiene preguntas sobre esta política o desea que eliminemos sus datos, puede escribirnos a <strong>myceosuport@gmail.com</strong>.</p>
 
         <h3 style="color: #1eec63; margin-top: 20px;">Términos y Condiciones</h3>
-        <p>Tech Companion ofrece clases personalizadas, soporte técnico, desarrollo web y otros servicios relacionados con informática y tecnología. Al contratar un servicio, el usuario acepta los siguientes términos:</p>
         <ul>
           <li>Los pagos pueden realizarse por Mercado Pago, Cuenta DNI, transferencia o efectivo.</li>
           <li>Los servicios no tienen una política de devolución fija, pero en caso de reclamo justificado, se evaluará cada caso para ofrecer una solución adecuada.</li>
@@ -131,27 +99,130 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>Ante cualquier duda o reclamo, podés escribirnos a <strong>myceosuport@gmail.com</strong>.</p>
       </div>
     </div>
+
+    <!-- Modal Mercado Pago -->
+    <div id="modalMP" class="custom-modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modalMP')">&times;</span>
+        <h3 style="color: #1eec63;">Alias Mercado Pago</h3>
+        <p id="aliasMP">techcompanion.it</p>
+        <button onclick="copiarAlias('aliasMP')">Copiar Alias</button>
+      </div>
+    </div>
+
+    <!-- Modal Cuenta DNI -->
+    <div id="modalDNI" class="custom-modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modalDNI')">&times;</span>
+        <h3 style="color: #1eec63;">Alias Cuenta DNI</h3>
+        <p id="aliasDNI">34.835.984</p>
+        <button onclick="copiarAlias('aliasDNI')">Copiar Alias</button>
+      </div>
+    </div>
   `;
 
-  // Abrir 
+  // Agregar estilos
+  const estiloModal = document.createElement('style');
+  estiloModal.innerHTML = `
+    .custom-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .custom-modal .modal-content {
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      color: white;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+    .custom-modal .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      color: #1eec63;
+      cursor: pointer;
+    }
+    .custom-modal button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #1eec63;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .custom-modal button:hover {
+      background-color: #00c95c;
+    }
+  `;
+  document.head.appendChild(estiloModal);
+
+  // Abrir modal legal
   document.getElementById('legal-toggle').addEventListener('click', () => {
-    const modal = document.getElementById('legal-modal');
-    modal.style.display = 'flex';
+    document.getElementById('legal-modal').style.display = 'flex';
   });
 
-  // Cerrar  X
+  // Cerrar modal legal
   document.getElementById('legal-close').addEventListener('click', () => {
-    const modal = document.getElementById('legal-modal');
-    modal.style.display = 'none';
+    document.getElementById('legal-modal').style.display = 'none';
   });
 
-  // Cerrar modal si clickeo fuera
+  // Cerrar modal legal haciendo clic fuera
   document.getElementById('legal-modal').addEventListener('click', (e) => {
     if (e.target.id === 'legal-modal') {
       e.target.style.display = 'none';
     }
   });
+
+  // Abrir modales de alias
+  document.getElementById('mercadoPagoBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('modalMP').style.display = 'flex';
+  });
+  document.getElementById('cuentaDniBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('modalDNI').style.display = 'flex';
+  });
+
+// Cerrar modales de alias al hacer clic en la X
+setTimeout(() => {
+  document.querySelectorAll('.custom-modal .close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest('.custom-modal');
+      if (modal) modal.style.display = 'none';
+    });
+  });
+}, 0);
+
+  // Copiar alias
+  window.copiarAlias = function(id) {
+    const alias = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(alias);
+    alert('Alias copiado: ' + alias);
+  };
+
+  // Cerrar alias si se hace clic fuera
+  ['modalMP', 'modalDNI'].forEach(modalId => {
+    const modal = document.getElementById(modalId);
+    modal.addEventListener('click', (e) => {
+      if (e.target.id === modalId) {
+        modal.style.display = 'none';
+      }
+    });
+  });
 });
+
+
 
 //Efecto de particulas del cursor 
 const canvas = document.getElementById('trail');

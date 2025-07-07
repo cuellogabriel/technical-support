@@ -264,40 +264,81 @@ details p {
       cursor: pointer;
     }
 
-footer {
-  background-color: #fffcfc;
-  color: black;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: nowrap;
-}
+  .footer {
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    font-size: 14px;
+  }
 
-footer .social-icons,
-footer .payment-icons {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+  }
 
-footer p {
-  margin: 0;
-  font-weight: 500;
-  white-space: nowrap;
-  order: 2; /* El texto queda en el centro */
-  flex: 1;
-  text-align: center;
-}
+  .footer-column.center {
+    text-align: center;
+  }
 
-footer .social-icons {
-  order: 1;
-}
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
 
-footer .payment-icons {
-  order: 3;
-}
+  .footer-button {
+    background: none;
+    color: black;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+  }
+
+  /* Modal */
+  #legal-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  #legal-modal .modal-content {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  #legal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+  }
 
 footer img {
   height: 60px;
@@ -465,8 +506,12 @@ footer img {
  height: 155px;
 }
 
+.btn-wsp{
+    background-color: #0066cc;
+  }
+
 .btn-wsp:hover {
-  background-color: #10a84f;
+  background-color: #1052a8;
 }
     @media (max-width: 768px) {
       .menu-toggle {
@@ -489,35 +534,19 @@ footer img {
         display: flex;
       }
 
-     footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    gap: 1rem;
-    overflow: hidden;
-  }
+         .footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-  footer .social-icons,
-  footer .payment-icons {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 100%;
-  }
+    .footer-column.left { order: 1; }
+    .footer-column.center { order: 2; }
+    .footer-column.right { order: 3; }
 
-  footer .social-icons img,
-  footer .payment-icons img {
-    max-width: 40px;
-    height: auto;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-    word-break: break-word;
-    padding: 0 1rem;
-    max-width: 100%;
-  }
+    .footer-column {
+      width: 100%;
+    }
 
   body {
     overflow-x: hidden; 
@@ -532,14 +561,14 @@ footer img {
   .mobile{
     display: flex;
     position: relative;
-    left: 60px;
+    left: 100px;
     width: 200px;
   }
 
   .mobile-contacto{
     display: flex;
     position: relative;
-    left: 90px;
+    left: 120px;
     width: 100px;
   }
 
@@ -756,17 +785,48 @@ footer img {
   <a href="https://wa.me/2324342375" class="btn-wsp" target="_blank">📲 Solicitar Turno por WhatsApp</a>
 </section>
     
-    <footer>
-        <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><img src="pictures/facebook1.png" alt="Facebook"></a>
-            <a href="https://instagram.com" target="_blank"><img src="pictures/instagram2.webp"   alt="Instagram"></a>
-        </div>
-        <div class="payment-icons">
-            <a href="https://www.mercadopago.com.ar" target="_blank"><img src="pictures/mercadopago1.png" alt="Mercado Pago"></a>
-            <a href="https://www.bancodigital.com" target="_blank"><img src="pictures/cuentadni1.jpg" style="border-radius: 50%;" alt="Cuenta DNI"></a>
-        </div>
-        <p>&copy;2025 Servicios de soporte - ayuda y clases . </p>
-    </footer>
+<footer class="footer">
+  <div class="footer-column">
+    <div class="footer-icons">
+      <a class="red" href="https://www.facebook.com/profile.php?id=61578005793210" target="_blank"><img src="pictures/facebook1.png" alt="Facebook" width="40"></a>
+      <a class="red" href="https://www.instagram.com/techcompanion_it/" target="_blank"><img src="pictures/instagram2.webp" alt="Instagram" width="40"></a>
+    </div>
+  </div>
+
+  <div class="footer-column center">
+    <p>&copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos</p>
+    <button id="legal-toggle" class="footer-button">Política de Privacidad y Términos</button>
+  </div>
+
+  <div class="footer-column">
+    <div class="footer-icons">
+      <a class="red1" href="https://www.mercadopago.com.ar" target="_blank"><img src="pictures/mercadopago1.png" alt="Mercado Pago" width="40"></a>
+      <a class="red1" href="https://www.bancodigital.com" target="_blank"><img src="pictures/cuentadni1.jpg" alt="Cuenta DNI" style="border-radius: 50%;" width="40"></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div id="legal-modal">
+  <div class="modal-content">
+    <button id="legal-close">&times;</button>
+    <h3>Política de Privacidad</h3>
+    <p>En Tech Companion valoramos la privacidad de nuestros visitantes, en este sitio web no se utilizan cookies ni tecnologías de rastreo.</p>
+    <p>Los datos que usted proporcione serán utilizados exclusivamente para responder consultas. No compartimos esta información con terceros.</p>
+    <p>Los pagos se realizan mediante Mercado Pago, Cuenta DNI, transferencia o efectivo. No almacenamos información financiera.</p>
+    <p>Consultas a: <strong>myceosuport@gmail.com</strong>.</p>
+
+    <h3 style="margin-top: 20px;">Términos y Condiciones</h3>
+    <ul>
+      <li>Al contratar un servicio, se aceptan estos términos.</li>
+      <li>Los servicios no tienen una política de devolución fija, pero en caso de reclamo justificado, se evaluará cada caso para ofrecer una solución adecuada</li>
+      <li>La calidad y duración de cada clase o servicio será acordada previamente con el cliente..</li>
+      <li>Pagos válidos por Mercado Pago, DNI, transferencia o efectivo.</li>
+      <li>El contacto puede realizarse por correo electrónico o WhatsApp. Al hacerlo, el usuario acepta que Tech Companion lo contacte para coordinar servicios.</li>
+      <p>Consultas a: <strong>myceosuport@gmail.com</strong>.</p>
+    </ul>
+  </div>
+</div>
     
     <a href="https://wa.me/2324342375"  target="_blank"><img class="whatsapp" src="pictures/wtsp.png" alt=""></a>
     <section id="video-fondo">
@@ -830,6 +890,26 @@ footer img {
       modal.style.display = 'none';
     }
   });
+
+   const legalModal = document.getElementById('legal-modal');
+  const legalToggle = document.getElementById('legal-toggle');
+  const legalClose = document.getElementById('legal-close');
+
+  if (legalToggle && legalModal && legalClose) {
+    legalToggle.addEventListener('click', () => {
+      legalModal.style.display = 'flex';
+    });
+
+    legalClose.addEventListener('click', () => {
+      legalModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === legalModal) {
+        legalModal.style.display = 'none';
+      }
+    });
+  }
   </script>
 
 </body>
