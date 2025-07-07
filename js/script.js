@@ -376,4 +376,33 @@ window.addEventListener('click', (e) => {
     }, 1000); // espera para mostrar el sitio
   });
 
+//mensaje wtsp
+ document.querySelectorAll('.price-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Buscamos el contenedor padre content-box
+      const contentBox = btn.closest('.content-box');
 
+      // Extraemos el título de la clase (h2)
+      const tituloClase = contentBox.querySelector('h2').innerText;
+
+      // Precio del botón
+      const precio = btn.innerText.trim();
+
+      // Fecha actual en formato mes - año (en español)
+      const fecha = new Date();
+      const opciones = { month: 'long', year: 'numeric' };
+      const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
+
+      // Mensaje para WhatsApp
+      const mensaje = `Me interesa saber si tenes un turno disponible para ${tituloClase} - ${fechaFormateada} y el precio ${precio}`;
+
+      // Número de WhatsApp con código de país (ajustá tu número)
+      const numeroWhatsapp = '5492324342375';
+
+      // URL para abrir WhatsApp con mensaje codificado
+      const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensaje)}`;
+
+      // Abrir en nueva pestaña
+      window.open(url, '_blank');
+    });
+  });
