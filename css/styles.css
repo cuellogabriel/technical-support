@@ -771,6 +771,10 @@ footer img:hover {
   pointer-events: none;
 }
 
+.error-message {
+  font-family: Arial, sans-serif;
+}
+
 /* Media Queries */
 @media (max-width: 780px) {
   .nav-links {

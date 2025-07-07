@@ -1,45 +1,152 @@
-function validarCampos(data) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const nombreApellidoRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-    const telefonoRegex = /^\d{10,}$/; // al menos 10 dígitos
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const btnEnviar = form.querySelector('button[type="submit"]');
+  const respuesta = document.getElementById('form-respuesta');
 
-    //  Validar campos vacíos
-    for (const key in data) {
-        if (!data[key].trim()) {
-            alert(`El campo "${key}" es obligatorio.`);
-            return false;
+  // Campos y sus validadores
+  const campos = {
+    nombre: {
+      elemento: form.querySelector('#nombre'),
+      regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/,
+      errorMsg: 'El nombre debe contener solo letras y espacios.',
+      minLength: 1,
+    },
+    apellido: {
+      elemento: form.querySelector('#apellido'),
+      regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/,
+      errorMsg: 'El apellido debe contener solo letras y espacios.',
+      minLength: 1,
+    },
+    email: {
+      elemento: form.querySelector('#email'),
+      regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      errorMsg: 'Por favor ingresa un email válido.',
+      minLength: 1,
+    },
+    telefono: {
+      elemento: form.querySelector('#telefono'),
+      regex: /^\d{8,12}$/,
+      errorMsg: 'El teléfono debe tener entre 8 y 12 dígitos.',
+      minLength: 8,
+    },
+    mensaje: {
+      elemento: form.querySelector('#mensaje'),
+      regex: /[\s\S]{10,}/, // mínimo 10 caracteres
+      errorMsg: 'El mensaje debe tener al menos 10 caracteres.',
+      minLength: 10,
+    },
+  };
+
+  // Crear contenedor para mensajes debajo de cada campo si no existe
+  for (const key in campos) {
+    let campo = campos[key];
+    let errorElem = document.createElement('div');
+    errorElem.className = 'error-message';
+    errorElem.style.color = 'red';
+    errorElem.style.fontSize = '0.9rem';
+    errorElem.style.marginTop = '0.2rem';
+    errorElem.style.display = 'none';
+    campo.elemento.insertAdjacentElement('afterend', errorElem);
+    campo.errorElem = errorElem;
+  }
+
+  // Función para validar un campo y mostrar/ocultar error
+  function validarCampo(campo) {
+    const val = campo.elemento.value.trim();
+    if (val.length < campo.minLength || !campo.regex.test(val)) {
+      campo.errorElem.textContent = campo.errorMsg;
+      campo.errorElem.style.display = 'block';
+      return false;
+    } else {
+      campo.errorElem.textContent = '';
+      campo.errorElem.style.display = 'none';
+      return true;
+    }
+  }
+
+  // Validar todos los campos y devolver true si todo está ok
+  function validarFormulario() {
+    let todoOk = true;
+    for (const key in campos) {
+      const campoValido = validarCampo(campos[key]);
+      if (!campoValido) todoOk = false;
+    }
+    return todoOk;
+  }
+
+  // Actualizar estado del botón enviar según validación
+  function actualizarEstadoBoton() {
+    if (validarFormulario()) {
+      btnEnviar.disabled = false;
+      respuesta.textContent = '';
+    } else {
+      btnEnviar.disabled = true;
+    }
+  }
+
+  // Validar cada campo al input
+  for (const key in campos) {
+    campos[key].elemento.addEventListener('input', () => {
+      validarCampo(campos[key]);
+      actualizarEstadoBoton();
+    });
+  }
+
+  // Validación final y envío
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validar al enviar
+    if (!validarFormulario()) {
+      btnEnviar.disabled = true;
+      respuesta.textContent = 'Por favor corrige los errores antes de enviar.';
+      respuesta.style.color = 'red';
+      return;
+    }
+
+    btnEnviar.disabled = true; // prevenir doble envío
+    respuesta.textContent = 'Enviando...';
+    respuesta.style.color = 'black';
+
+    // Preparar datos para enviar
+    const data = {};
+    for (const key in campos) {
+      data[key] = campos[key].elemento.value.trim();
+    }
+
+    try {
+      const res = await fetch(form.action, {
+        method: form.method,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        respuesta.textContent = '✅ Consulta enviada correctamente.';
+        respuesta.style.color = 'green';
+        form.reset();
+        // Después de resetear, desactivar botón hasta que usuario escriba algo
+        btnEnviar.disabled = true;
+
+        // Ocultar mensajes de error tras reset
+        for (const key in campos) {
+          campos[key].errorElem.style.display = 'none';
         }
+      } else {
+        respuesta.textContent = '❌ Ocurrió un error al enviar. Intentá nuevamente.';
+        respuesta.style.color = 'red';
+        btnEnviar.disabled = false;
+      }
+    } catch (err) {
+      respuesta.textContent = '❌ No se pudo conectar al servidor. Intentalo más tarde.';
+      respuesta.style.color = 'red';
+      btnEnviar.disabled = false;
     }
+  });
 
-    //  Validar nombre
-    if (!nombreApellidoRegex.test(data.nombre)) {
-        alert('El nombre solo debe contener letras y espacios.');
-        return false;
-    }
-
-    //  Validar apellido
-    if (!nombreApellidoRegex.test(data.apellido)) {
-        alert('El apellido solo debe contener letras y espacios.');
-        return false;
-    }
-
-    //  Validar email
-    if (!emailRegex.test(data.email)) {
-        alert('Por favor, ingresa un email válido.');
-        return false;
-    }
-
-    //  Validar teléfono
-    if (!telefonoRegex.test(data.telefono)) {
-        alert('El teléfono debe tener al menos 10 números y sin caracteres especiales.');
-        return false;
-    }
-
-    //  Validar mensaje
-    if (data.mensaje.length < 10) {
-        alert('El mensaje debe tener al menos 10 caracteres.');
-        return false;
-    }
-
-    return true;
-}
+  // Inicializar estado botón (desactivado)
+  btnEnviar.disabled = true;
+});
