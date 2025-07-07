@@ -842,6 +842,11 @@ footer img {
     <p id="modal-descripcion">Descripción del servicio...</p>
   </div>
 </div>
+ <script>
+    if (window.location.pathname.endsWith('versionwhite.html')) {
+      window.history.replaceState({}, '', '/');
+    }
+  </script>
    <script src="https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.min.js"></script>
   <script>
     // Lógica para tabs

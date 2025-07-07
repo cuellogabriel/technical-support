@@ -254,6 +254,11 @@
 
 <!-- efecto de sonido -->
 <audio id="portalSound" src="" preload="auto"></audio>
+ <script>
+    if (window.location.pathname.endsWith('index.html')) {
+      window.history.replaceState({}, '', '/');
+    }
+  </script>
    <script src="https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.min.js"></script>
  </body>
 </html>
