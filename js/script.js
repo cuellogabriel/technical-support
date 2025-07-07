@@ -1,13 +1,18 @@
-// Smooth Scroll para navegación
 const navLinks = document.querySelectorAll('.nav-links a');
 
 navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-    });
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if(targetElement){
+      const yOffset = -150;  // ajusta este valor según altura navbar
+      const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      console.warn(`No se encontró el elemento con id: ${targetId}`);
+    }
+  });
 });
 
 // Toggle accordion menu on mobile
