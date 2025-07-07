@@ -6,7 +6,7 @@ navLinks.forEach(link => {
     const targetId = link.getAttribute('href');
     const targetElement = document.querySelector(targetId);
     if(targetElement){
-      const yOffset = -150;  // ajusta este valor según altura navbar
+      const yOffset = -150; 
       const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     } else {

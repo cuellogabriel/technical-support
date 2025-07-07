@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Validar todos los campos y devolver true si todo está ok
+  // Validar todos los campos 
   function validarFormulario() {
     let todoOk = true;
     for (const key in campos) {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return todoOk;
   }
 
-  // Actualizar estado del botón enviar según validación
+  // Actualizar estado del botón 
   function actualizarEstadoBoton() {
     if (validarFormulario()) {
       btnEnviar.disabled = false;
@@ -83,8 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEnviar.disabled = true;
     }
   }
-
-  // Validar cada campo al input
   for (const key in campos) {
     campos[key].elemento.addEventListener('input', () => {
       validarCampo(campos[key]);
@@ -95,8 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Validación final y envío
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // Validar al enviar
     if (!validarFormulario()) {
       btnEnviar.disabled = true;
       respuesta.textContent = 'Por favor corrige los errores antes de enviar.';
@@ -104,11 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    btnEnviar.disabled = true; // prevenir doble envío
+    btnEnviar.disabled = true;
     respuesta.textContent = 'Enviando...';
     respuesta.style.color = 'black';
 
-    // Preparar datos para enviar
     const data = {};
     for (const key in campos) {
       data[key] = campos[key].elemento.value.trim();
@@ -128,10 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
         respuesta.textContent = '✅ Consulta enviada correctamente.';
         respuesta.style.color = 'green';
         form.reset();
-        // Después de resetear, desactivar botón hasta que usuario escriba algo
+        //esactivar botón hasta que usuario escriba algo
         btnEnviar.disabled = true;
 
-        // Ocultar mensajes de error tras reset
+        // Ocultar mensajes de error  desp reset
         for (const key in campos) {
           campos[key].errorElem.style.display = 'none';
         }

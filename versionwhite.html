@@ -60,11 +60,44 @@
       border-radius: var(--border-radius);
     }
 
-    .principal {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--dark-color);
-    }
+.principal {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000; /* Texto negro base */
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  user-select: none;
+
+  /* Sombras para efecto 3D azul */
+  text-shadow:
+    2px 2px 0 #007acc,       /* sombra azul clara */
+    4px 4px 6px rgba(0, 0, 70, 0.6), /* sombra azul oscura con difuminado */
+    0 0 8px #131414,         /* brillo azul */
+    0 0 15px #121213,
+    0 0 20px #007acc,
+    0 0 25px #005fa3;
+
+  /* Brillo y gradiente azul */
+  background: linear-gradient(45deg, #005fa3, #3399ff, #007acc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-size: 200% 200%;
+
+  /* Animación de brillo */
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
 
     .menu-toggle {
       display: none;
@@ -612,6 +645,13 @@ footer img {
     background-color: #0066cc;
   }
 
+   .principal {
+    font-size: 1.8rem; /* Tamaño más pequeño en móviles */
+    letter-spacing: 0.08em;
+    display: flex;
+    left: 20px;
+  }
+
     }
   </style>
   <script defer src="js/toggleMode.js"></script>
@@ -929,6 +969,5 @@ footer img {
     });
   }
   </script>
-
 </body>
 </html>
