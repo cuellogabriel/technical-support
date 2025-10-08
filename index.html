@@ -13,8 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <script defer src="js/script.js"></script>
     <script defer src="cart/card.js"></script>
-    <script defer src="js/toggleMode.js"></script>
-    <script defer src="Validator/validator.js"></script>
+    <script defer src="js/toggleMode.js"></script> 
       <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,9 +43,9 @@
   </script>
   </head>
 <body>
-    <canvas id="trail"></canvas>
+<div class="main-content">
  <header>
-    <nav class="navbar" alt="barra de navegacion - techcompanion">
+    <nav class="navbar rgb-border-spin" alt="barra de navegacion - techcompanion">
         <div class="logo">
             <img src="pictures/logo1.png" class="logoprincipal" alt="logo de techcompanion - tecnologia">
         </div>
@@ -56,114 +55,63 @@
 </div>
 
 <ul class="nav-links" id="nav-links">
-    <li><a class="stilo" href="#info" alt="boton de pagina principal - techcompanion - informacion - home">Inicio</a></li>
-    <li><a class="stilo" href="#info" alt="Metodología -  techcompanion - informacion - cursadas - formas - cordinacion -regimen - tecnologia - desarrollo web - informática">Metodología</a></li>
-    <li><a class="stilo" href="#precios" alt="eleccion de plan de pago y clase - precios - cursar - tecnologias - horarios - formas - desarrollo">Precios</a></li>
-    <li><a class="stilo" href="#contacto">Contacto</a></li>
+    <li><a class="stilo" href="#info">Qué Hacemos</a></li>
+    <li><a class="stilo" href="#services-carousel-section">Servicios</a></li>
+    <li><a class="stilo" href="#soluciones">Soluciones</a></li>
     <li><a class="stilo" href="#acompanamiento">Acompañamiento</a></li>
+    <li><a class="stilo" href="#contact-form-section">Contacto</a></li>
 </ul>
-  <input type="checkbox" id="dark-mode-toggle">
-<label for="dark-mode-toggle" class="switch"></label>
  </nav>
-</header> 
+</header>
 <section id="info" class="section">    
     <div class="content">
-      <div class="info-container">
-        <div class="column">
-            <h2 class="titulo2">📚 Aprende Informática y Programación Web</h2>
-            <p>🚀 Clases Particulares y de Apoyo en: Informática y Programación Web 💻</p>
-            <p>🔹 Desde informática básica hasta nivel analista.</p>
-            <p>🔹 Programación web con HTML, CSS, JavaScript.</p>
-            <p>🔹 React (Próximamente)</p>
-            <h2 class="titulo3" class="abajo">👥 Modalidad flexible:</h2>
-            <p class="abajo">✅ Clases grupales (máximo 10 personas).</p>
-            <p class="abajo">✅ Clases individuales personalizadas según tu nivel.</p>
-            <p class="abajo">✅ Para todas las edades: niños, jóvenes, adultos y adultos mayores.</p>
-        </div>
-        <div class="divider"></div>
-        <div class="column">
-            <h2 class="titulo2">🎯 Metodología de Enseñanza</h2>
-            <p class="separa">✔️ Clases estructuradas para aprender desde cero.</p>
-            <p class="separa">✔️ Clases interactivas y dinámicas.</p>
-            <p class="separa">✔️ Clases adaptadas si necesitas reforzar algo específico.</p>
-            <p class="separa">✔️ Material de apoyo con apuntes y links de referencia.</p>
-            <p class="separa">✔️ Soporte en horarios específicos para dudas.</p>
-            <p class="separa">❌ Sin evaluaciones: tu avance depende de tu compromiso.</p>
-            <p class="separa">❌ No se permiten alumnos sin interés: quienes falten mucho o no muestren ganas de aprender serán dados de baja.</p>
-            <p class="separa">📍 Modalidad: Virtual o Presencial </p>
-            <p class="separa">⏳ Duración: [A tu ritmo]</p>
-        </div>
+      <!-- Bloque 1: Soluciones Digitales -->
+      <div class="info-block">
+        <h2 class="titulo2">🚀 Desarrollo de Soluciones Digitales a Medida</h2>
+        <p>Transformamos tus ideas en software robusto, escalable y de alto rendimiento. Nos especializamos en el ciclo completo de desarrollo, desde la conceptualización hasta el despliegue y mantenimiento.</p>
+        <button class="btn-detalles rgb-border-spin" id="btn-soluciones-digitales">Ver Detalles</button>
+      </div>
+
+      <!-- Bloque 2: Stack Tecnológico -->
+      <div class="info-block">
+        <h2 class="titulo2">🛠️ Stack Tecnológico de Vanguardia</h2>
+        <p>Utilizamos las tecnologías más modernas y probadas del mercado para garantizar productos de alta calidad, seguros y con un rendimiento excepcional. Nuestro equipo domina un amplio espectro de herramientas.</p>
+        <button class="btn-detalles rgb-border-spin" id="btn-stack-tecnologico">Ver Stack</button>
+      </div>
+    </div>
+
+    <!-- Modal para Soluciones Digitales -->
+    <div class="modal-detalle" id="modal-soluciones-digitales">
+      <div class="modal-contenido">
+        <span class="cerrar-modal" data-modal-id="modal-soluciones-digitales">&times;</span>
+        <h2 class="titulo2">🚀 Desarrollo de Soluciones Digitales a Medida</h2>
+        <p>✔️ <strong>Aplicaciones Web Complejas:</strong> Desarrollamos sistemas de gestión empresarial (ERP, CRM), plataformas SaaS y soluciones personalizadas que optimizan tus operaciones.</p>
+        <p>✔️ <strong>Plataformas de E-commerce y Marketplaces:</strong> Creamos tiendas online potentes y marketplaces dinámicos, diseñados para maximizar tus ventas y ofrecer una experiencia de usuario excepcional.</p>
+        <p>✔️ <strong>Sitios Web Institucionales y Landing Pages:</strong> Diseñamos y desarrollamos sitios web corporativos y landing pages de alto impacto, optimizados para la conversión y la presencia digital.</p>
+        <p>✔️ <strong>Integración y Desarrollo de APIs:</strong> Conectamos tus sistemas con servicios de terceros y construimos APIs personalizadas para una comunicación fluida y eficiente entre tus aplicaciones.</p>
+        <p>✔️ <strong>Desarrollo Móvil Multiplataforma:</strong> Creamos aplicaciones nativas y multiplataforma para iOS y Android, garantizando una experiencia de usuario consistente y de calidad.</p>
+        <p>✔️ <strong>Consultoría y Auditoría Tecnológica:</strong> Te asesoramos en la elección de las mejores tecnologías y arquitecturas, y auditamos tus sistemas existentes para identificar oportunidades de mejora.</p>
+      </div>
+    </div>
+
+    <!-- Modal para Stack Tecnológico -->
+    <div class="modal-detalle" id="modal-stack-tecnologico">
+      <div class="modal-contenido">
+        <span class="cerrar-modal" data-modal-id="modal-stack-tecnologico">&times;</span>
+        <h2 class="titulo2">🛠️ Stack Tecnológico de Vanguardia</h2>
+        <p>✔️ <strong>Frontend:</strong> React, Angular, Vue.js, Next.js, Svelte, TypeScript, JavaScript (ES6+).</p>
+        <p>✔️ <strong>Backend:</strong> Node.js (Express, NestJS), Python (Django, Flask, FastAPI), Java (Spring Boot), Go (Gin, Echo), PHP (Laravel, Symfony), Ruby (Rails), C# (.NET).</p>
+        <p>✔️ <strong>Bases de Datos:</strong> PostgreSQL, MongoDB, MySQL, Redis, Cassandra, Oracle, SQL Server.</p>
+        <p>✔️ <strong>DevOps y Cloud:</strong> Docker, Kubernetes, AWS (EC2, S3, Lambda, RDS), Google Cloud (Compute Engine, Cloud Storage, Cloud Functions), Azure, CI/CD (Jenkins, GitLab CI, GitHub Actions).</p>
+        <p>✔️ <strong>Desarrollo Móvil:</strong> React Native, Flutter, Swift (iOS), Kotlin (Android).</p>
+        <p>✔️ <strong>Control de Versiones:</strong> Git, GitHub, GitLab, Bitbucket.</p>
+        <p>✔️ <strong>Testing:</strong> Jest, React Testing Library, Cypress, Selenium, JUnit.</p>
+        <p>✔️ <strong>Metodologías Ágiles:</strong> Scrum y Kanban para una entrega continua y flexible.</p>
       </div>
     </div>
 </section>
 
-<main id="precios">
-  <div class="info-section">
-      <div class="info-tabs">
-          <div class="tab active" data-tab="clase">📚 Por Clase</div>
-          <div class="tab" data-tab="semana">📚 Por Semana</div>
-          <div class="tab" data-tab="mes">📚 Por Mes</div>
-      </div>
-
-      <div class="info-content">
-          <div class="content-box active" id="clase">
-              <div class="text-and-image">
-                  <div class="info-text">
-                      <h2>📚 Por Clase</h2>
-                      <p>📌 Ideal para quienes necesitan reforzar temas específicos.</p>
-                      <p>📚 Clase personalizada según tu nivel y necesidades.</p>
-                      <p>📖 Material de apoyo luego de la clase.</p>
-                      <p>⏳ Duración: [1 hora]</p>
-                  </div>
-                  <div class="info-image-container">
-                      <div class="info-image">
-                          <img src="pictures/fonditocard.jpg" alt="Clase individual">
-                      </div>
-                      <button class="price-btn">$ 10.000</button>
-                  </div>
-              </div>
-          </div>
-
-          <div class="content-box" id="semana">
-              <div class="text-and-image">
-                  <div class="info-text">
-                      <h2>📚 Por Semana</h2>
-                      <p>📌 Perfecto para quienes buscan un aprendizaje y refuerzo intensivo.</p>
-                      <p>📚 2 Clases con seguimiento personalizado.</p>
-                      <p>📖 Acceso a material de apoyo y consultas en horario definido.</p>
-                      <p>⏳ Duración: [2 Clases]</p>
-                  </div>
-                  <div class="info-image-container">
-                      <div class="info-image">
-                          <img src="pictures/fonditocard4.jpg" alt="Clases semanales">
-                      </div>
-                      <button class="price-btn">$ 18.000</button>
-                  </div>
-              </div>
-          </div>
-
-          <div class="content-box" id="mes">
-              <div class="text-and-image">
-                  <div class="info-text">
-                      <h2>📚 Por Mes</h2>
-                      <p>📌 Opción recomendada para un aprendizaje estructurado y progresivo.</p>
-                      <p>📚 Plan de estudios adaptado a tu nivel con objetivos semanales.</p>
-                      <p>🎯 Clases interactivas + material de apoyo detallado.</p>
-                      <p>⏳ Duración: [8 Clases]</p>
-                  </div>
-                  <div class="info-image-container">
-                      <div class="info-image">
-                          <img src="pictures/fonditocard5.jpg" alt="Clases mensuales">
-                      </div>
-                      <button class="price-btn">$ 70.000</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</main> 
-
-<section id="contacto" class="section">
+<section id="services-carousel-section" class="section">
   <div class="contacto-container">
     
     <!-- Servicios -->
@@ -171,41 +119,45 @@
       <h2 class="titulo-servicio">Servicios que Ofrecemos</h2>
       
       <div class="servicios-carrusel">
-        <button class="flecha arriba">&#9650;</button>
-        
-        <div class="servicio-visible">
-          <div class="servicio-item activo" data-detalle="Contamos con amplia experiencia en el desarrollo de soluciones web de alto rendimiento, adaptadas a las necesidades específicas de cada cliente. Diseñamos y programamos sitios completamente personalizados: desde landing pages optimizadas para conversión, hasta plataformas e-commerce robustas, sistemas institucionales y paneles de administración intuitivos. Nuestro enfoque combina diseño UX/UI profesional, desarrollo frontend y backend escalable, integración con APIs y pasarelas de pago, y estrategias SEO avanzadas. Cada proyecto es ejecutado con estándares de calidad, seguridad y performance que garantizan resultados sólidos y sostenibles en el tiempo.">
-            <h3>Desarrollo Web</h3>
-            <p>Creamos sitios web a medida, desde landings hasta plataformas complejas.</p>
+        <div class="carousel-wrapper">
+          <div class="carousel-inner">
+            <div class="servicio-item" data-detalle="Contamos con amplia experiencia en el desarrollo de soluciones web de alto rendimiento, adaptadas a las necesidades específicas de cada cliente. Diseñamos y programamos sitios completamente personalizados: desde landing pages optimizadas para conversión, hasta plataformas e-commerce robustas, sistemas institucionales y paneles de administración intuitivos. Nuestro enfoque combina diseño UX/UI profesional, desarrollo frontend y backend escalable, integración con APIs y pasarelas de pago, y estrategias SEO avanzadas. Cada proyecto es ejecutado con estándares de calidad, seguridad y performance que garantizan resultados sólidos y sostenibles en el tiempo.">
+              <h3>Desarrollo Web</h3>
+              <p>Creamos sitios web a medida, desde landings hasta plataformas complejas.</p>
+            </div>
+            <div class="servicio-item" data-detalle="Brindamos soporte técnico remoto y presencial las 24 horas, los 7 días de la semana. Nos especializamos en la configuración y mantenimiento de redes, gestión proactiva de hardware y software, respaldo y recuperación de datos, instalación de sistemas operativos, configuración de servidores, y asistencia personalizada para usuarios finales. Garantizamos continuidad operativa, seguridad informática y respuesta ágil ante cualquier incidente técnico.">
+              <h3>Soporte IT</h3>
+              <p>Identificación, diagnóstico y resolución de problemas técnicos las 24hs al día.</p>
+            </div>
+            <div class="servicio-item" data-detalle="Realizamos búsquedas laborales para puestos IT con enfoque técnico y cultural. Usamos plataformas como LinkedIn Recruiter - HackerRank - vasrias mas , sumamos entrevistas técnicas personalizadas 100% al puesto requerido con un alto grado de conocimientos sobre el mismo. Encontramos el mejor talento calificado según tus necesidades específicas.">
+              <h3>Reclutamiento IT</h3>
+              <p>Encontramos los profesionales más calificados para tu empresa.</p>
+            </div>
+            <div class="servicio-item" data-detalle="Diseñamos campañas efectivas en redes sociales, Google Ads, email - marketing y SEO. Optimizamos tu presencia digital con análisis de métricas, segmentación precisa y estrategias de contenido que aumentan tus conversiones.">
+              <h3>Marketing Digital</h3>
+              <p>Implementamos las mejores estrategias para aumentar tus ventas/visibilidad.</p>
+            </div>
+            <div class="servicio-item" data-detalle="Ofrecemos un servicio integral de diseño gráfico y modelado 3D orientado a la creación de piezas visuales impactantes y prototipos de alta precisión. Nos especializamos en branding, diseño de identidad visual, material promocional, renders hiperrealistas y modelado para impresión 3D. Utilizamos software profesional como Adobe Creative Suite, Blender y Fusion 360 para garantizar resultados de calidad superior. Además, contamos con equipos de impresión 3D FDM y SLA que nos permiten fabricar piezas funcionales, maquetas, packaging, objetos decorativos o técnicos en una amplia variedad de materiales. Combinamos creatividad y tecnología para transformar ideas en soluciones visuales y físicas concretas.">
+              <h3>Diseño Grafico - Impresiones 3D</h3>
+              <p>Diseños visuales  y modelados + Diseño 3D e impresiones de alta precision</p>
+            </div>
+            <div class="servicio-item" data-detalle="Brindamos asistencia técnica especializada para tecnologías aplicadas al agro: monitores de siembra, GPS, software de gestión de maquinaria y agricultura de precisión. Solucionamos problemas con pantallas que no encienden, sensores desconectados, errores de señal satelital, configuraciones incorrectas y más. Trabajamos con equipos de marcas como Trimble, John Deere, AgLeader, entre otros. Ideal para productores que dependen de sus equipos en plena campaña de siembra o cosecha. Atención remota o presencial en zonas rurales.">
+              <h3>Agricultura De Precisión</h3>
+              <p>Asistencia especializada ante fallas en monitores, GPS y sistemas de agricultura</p>
+            </div>
           </div>
-          <div class="servicio-item" data-detalle="Brindamos soporte técnico remoto y presencial las 24 horas, los 7 días de la semana. Nos especializamos en la configuración y mantenimiento de redes, gestión proactiva de hardware y software, respaldo y recuperación de datos, instalación de sistemas operativos, configuración de servidores, y asistencia personalizada para usuarios finales. Garantizamos continuidad operativa, seguridad informática y respuesta ágil ante cualquier incidente técnico.">
-            <h3>Soporte IT</h3>
-            <p>Identificación, diagnóstico y resolución de problemas técnicos las 24hs al día.</p>
-          </div>
-          <div class="servicio-item" data-detalle="Realizamos búsquedas laborales para puestos IT con enfoque técnico y cultural. Usamos plataformas como LinkedIn Recruiter - HackerRank - vasrias mas , sumamos entrevistas técnicas personalizadas 100% al puesto requerido con un alto grado de conocimientos sobre el mismo. Encontramos el mejor talento calificado según tus necesidades específicas.">
-            <h3>Reclutamiento IT</h3>
-            <p>Encontramos los profesionales más calificados para tu empresa.</p>
-          </div>
-          <div class="servicio-item" data-detalle="Diseñamos campañas efectivas en redes sociales, Google Ads, email - marketing y SEO. Optimizamos tu presencia digital con análisis de métricas, segmentación precisa y estrategias de contenido que aumentan tus conversiones.">
-            <h3>Marketing Digital</h3>
-            <p>Implementamos las mejores estrategias para aumentar tus ventas/visibilidad.</p>
-          </div>
-           <div class="servicio-item" data-detalle="Ofrecemos un servicio integral de diseño gráfico y modelado 3D orientado a la creación de piezas visuales impactantes y prototipos de alta precisión. Nos especializamos en branding, diseño de identidad visual, material promocional, renders hiperrealistas y modelado para impresión 3D. Utilizamos software profesional como Adobe Creative Suite, Blender y Fusion 360 para garantizar resultados de calidad superior. Además, contamos con equipos de impresión 3D FDM y SLA que nos permiten fabricar piezas funcionales, maquetas, packaging, objetos decorativos o técnicos en una amplia variedad de materiales. Combinamos creatividad y tecnología para transformar ideas en soluciones visuales y físicas concretas.">
-            <h3>Diseño Grafico - Impresiones 3D</h3>
-            <p>Diseños visuales  y modelados + Diseño 3D e impresiones de alta precision</p>
-          </div>
-          <div class="servicio-item" data-detalle="Brindamos asistencia técnica especializada para tecnologías aplicadas al agro: monitores de siembra, GPS, software de gestión de maquinaria y agricultura de precisión. Solucionamos problemas con pantallas que no encienden, sensores desconectados, errores de señal satelital, configuraciones incorrectas y más. Trabajamos con equipos de marcas como Trimble, John Deere, AgLeader, entre otros. Ideal para productores que dependen de sus equipos en plena campaña de siembra o cosecha. Atención remota o presencial en zonas rurales.">
-            <h3>Agricultura De Precisión</h3>
-            <p>Asistencia especializada ante fallas en monitores, GPS y sistemas de agricultura</p>
-          </div>
-           
-
-          <!-- BOTÓN DE DETALLES -->
-          <button class="btn-detalles">Ver Detalles</button>
         </div>
-
-        <button class="flecha abajo">&#9660;</button>
+        <div class="carousel-nav">
+          <button class="nav-dot active" data-index="0"></button>
+          <button class="nav-dot" data-index="1"></button>
+          <button class="nav-dot" data-index="2"></button>
+          <button class="nav-dot" data-index="3"></button>
+          <button class="nav-dot" data-index="4"></button>
+          <button class="nav-dot" data-index="5"></button>
+        </div>
       </div>
+      <!-- BOTÓN DE DETALLES -->
+      <button class="btn-detalles rgb-border-spin" id="btn-detalles-carousel">Ver Detalles</button>
 
       <!-- MODAL DETALLE -->
       <div class="modal-detalle" id="modal-detalle">
@@ -217,41 +169,78 @@
       </div>
     </div>
   
-  <form id="contact-form" action="https://formspree.io/f/xdkzpzwn" method="POST">
-  <h2 class="contactenos">Contacto</h2>
-  <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-  <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-  <input type="email" id="email" name="email" placeholder="Email" required>
-  <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono" required>
-  <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta aquí..." class="textodearea" required></textarea>
-  <button type="submit" class="btn-1">Enviar</button>
-</form>
-<div id="form-respuesta" style="margin-top: 1rem; color: green; font-weight: bold;"></div>
   </section>
 
   <section id="acompanamiento" class="acompanamiento">
-  <h2>🤝 Acompañamiento Personalizado</h2>
-  <p class="descripcion">
-    Sabemos que a veces estudiar puede ser difícil, frustrante o solitario. Por eso ofrecemos un servicio de acompañamiento virtual y cercano. De escucha y resolutivo.
-  </p>
-
-  <div class="beneficios">
-    <ul>
-      <li>✔️ Espacio de escucha para quienes se sienten solos o desmotivados.</li>
-      <li>✔️ Resolución de dudas técnicas o académicas. Donde los guiaremos en el paso a paso para que ustedes mismo logren resultados.</li>
-      <li>✔️ Asistencia para organizar tus tiempos de estudio, formas - tips.</li>
-      <li>✔️ Apoyo emocional para quienes sienten frustración .</li>
-      <li>✔️ Ideal para estudiantes y personas que no logran entender la tecnologia .</li>
-    </ul>
+    <div class="info-block">
+      <h2>🤝 Acompañamiento Personalizado</h2>
+      <p class="descripcion">Ofrecemos un servicio de acompañamiento virtual cercano, de escucha y resolutivo para quienes se sienten solos, desmotivados o frustrados con la tecnología y el estudio.</p>
+      <button class="btn-detalles rgb-border-spin" id="btn-acompanamiento">Ver Beneficios</button>
+    </div>
+  </section>
+  
+  <section id="soluciones" class="acompanamiento">
+    <div class="info-block">
+      <h2>💡 Soluciones Tecnológicas Integrales</h2>
+      <p class="descripcion">Diseñamos un ecosistema de soluciones para potenciar tu negocio, optimizar procesos, mejorar la eficiencia y garantizar la escalabilidad a través de estrategias a medida.</p>
+      <button class="btn-detalles rgb-border-spin" id="btn-soluciones-tecnologicas">Ver Soluciones</button>
+    </div>
+  </section>
+  
+  <!-- Modal para Acompañamiento -->
+  <div class="modal-detalle" id="modal-acompanamiento">
+    <div class="modal-contenido">
+      <span class="cerrar-modal" data-modal-id="modal-acompanamiento">&times;</span>
+      <h2 class="titulo2">🤝 Acompañamiento Personalizado</h2>
+      <div class="beneficios">
+        <ul>
+          <li>✔️ Espacio de escucha para quienes se sienten solos o desmotivados.</li>
+          <li>✔️ Resolución de dudas técnicas o académicas, guiándote paso a paso.</li>
+          <li>✔️ Asistencia para organizar tus tiempos y métodos de estudio.</li>
+          <li>✔️ Apoyo emocional para superar la frustración.</li>
+        </ul>
+      </div>
+      <div class="turno-btn"><a href="https://wa.me/2324342375?text=Hola,%20quiero%20solicitar%20un%20turno%20de%20acompañamiento" target="_blank" class="rgb-border-spin">📅 Solicitar Turno</a></div>
+    </div>
+  </div>
+  
+  <!-- Modal para Soluciones Tecnológicas -->
+  <div class="modal-detalle" id="modal-soluciones-tecnologicas">
+    <div class="modal-contenido">
+      <span class="cerrar-modal" data-modal-id="modal-soluciones-tecnologicas">&times;</span>
+      <h2 class="titulo2">💡 Soluciones Tecnológicas Integrales</h2>
+      <div class="beneficios">
+        <ul>
+          <li>✔️ <strong>Consultoría Estratégica:</strong> Análisis de infraestructura para modernización.</li>
+          <li>✔️ <strong>Arquitectura de Software:</strong> Diseño de sistemas robustos, seguros y escalables.</li>
+          <li>✔️ <strong>Mantenimiento Evolutivo:</strong> Soporte y adaptación continua de tus aplicaciones.</li>
+          <li>✔️ <strong>Optimización de Rendimiento:</strong> Auditoría y mejora de velocidad y eficiencia.</li>
+        </ul>
+      </div>
+      <div class="turno-btn"><a href="https://wa.me/2324342375?text=Hola,%20quisiera%20consultar%20sobre%20sus%20soluciones%20tecnológicas" target="_blank" class="rgb-border-spin">📲 Contactar Especialista</a></div>
+    </div>
   </div>
 
-  <div class="turno-btn">
-    <a href="https://wa.me/2324342375?text=Hola,%20quiero%20solicitar%20un%20turno%20de%20acompañamiento%20personalizado" target="_blank">📅 Solicitar Turno por WhatsApp</a>
-  </div>
+<section id="contact-form-section" class="section">
+    <form id="contact-form" action="https://formspree.io/f/xdkzpzwn" method="POST">
+        <h2 class="contactenos">Contacto</h2>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono" required>
+        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta aquí..." class="textodearea" required></textarea>
+        <div class="form-footer">
+          <button type="submit" class="btn-1 rgb-border-spin">Enviar</button>
+          <div class="spinner-container" style="display: none;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+    </form>
+    <div id="form-respuesta" style="margin-top: 1rem; text-align: center; font-weight: bold;"></div>
 </section>
 
    <footer>
-  <div class="footer-container">
+  <div class="footer-container rgb-border-spin" style="border-radius: 15px; padding: 1rem;">
     <div class="social-icons">
       <a><img></a>
       <a><img></a>
@@ -263,14 +252,15 @@
     </div>
   </div>
 </footer>
+</div>
     
     <a href="https://wa.me/2324342375"  target="_blank"><img class="whatsapp" src="../pictures/whatsp 1.avif" style=" position: fixed; bottom: 180px;right: 20px;width: 60px; height: 60px;
     border-radius: 50%;object-fit: cover;box-shadow: 0 4px 8px rgba(0,0,0,0.3);transition: transform 0.3s ease;z-index: 1000;" alt=""></a>
+    
     <section id="video-fondo">
-      <video autoplay muted loop id="bg-video">
+      <video autoplay muted loop playsinline id="bg-video">
         <source src="pictures/vid-1.mp4" type="video/mp4">
     </video>
-
    </section>
 
    <!-- intro -->
@@ -284,8 +274,6 @@
   </div>
 </div>
 
-<!-- efecto de sonido -->
-<audio id="portalSound" src="" preload="auto"></audio>
  <script>
     if (window.location.pathname.endsWith('index.html')) {
       window.history.replaceState({}, '', '/');

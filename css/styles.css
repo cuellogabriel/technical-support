@@ -36,21 +36,31 @@ nav {
   align-items: center; 
   justify-content: space-between; 
   padding: 0.5rem 2rem; 
-  background-color: #111;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+  border-radius: 0 0 15px 15px; /* Bordes redondeados para el navbar */
+  /* Mismo fondo que las secciones */
+  background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
+  background-size: 400% 400%;
+  animation: animated-rgb-background 15s ease infinite;
 }
 
 .nav-links li a.stilo {
-  color: #00ff99;
+  position: relative; /* Para el efecto de borde */
+  color: #aaa;
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-  transform: translateX(0) scale(1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: transparent;
+  /* Efecto hundido */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
 }
 
 .nav-links li a.stilo:hover {
-  color: #0ff;
-  transform: translateX(3px) scale(1.2);
+  color: #00ff99;
+  transform: translateY(-3px) scale(1.05);
+  background-color: rgba(0, 255, 153, 0.05);
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
 }
 
 nav ul li a {
@@ -79,11 +89,79 @@ nav ul li a:visited {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.navbar .logo {
+.navbar .logo { /* Contenedor para el logo y su borde animado */
   display: flex;
   align-items: center;
-  gap: 0.5rem; 
+  position: relative; /* Necesario para posicionar el borde */
+  width: 70px; /* Mismo tamaño que el logo */
+  height: 70px;
+  justify-content: center;
 }
+
+.navbar .logo::before {
+  content: '';
+  position: absolute;
+  top: -5px; /* Ajuste para que el borde esté por fuera */
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  padding: 3px; /* Grosor del borde */
+  background: conic-gradient(from 0deg, red, yellow, lime, aqua, blue, magenta, red);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+          mask-composite: exclude;
+  animation: spin-rgb 4s linear infinite;
+}
+
+/* Clase reutilizable para el borde RGB giratorio */
+.rgb-border-spin {
+  position: relative;
+  z-index: 0;
+}
+
+.rgb-border-spin::before {
+  content: '';
+  position: absolute;
+  z-index: -1; /* Lo pone detrás del contenido del botón/elemento */
+  inset: 0; /* Ocupa el mismo espacio que el elemento padre */
+  border-radius: inherit; /* Hereda la forma del borde del elemento padre */
+  padding: 3px; /* Grosor del borde */
+  background: conic-gradient(from var(--angle), #0d0d0d, #0d0d0d 25%, #00ff99, #0d0d0d 75%, #0d0d0d);
+  animation: spin-border 4s linear infinite;
+  
+  /* Enmascaramos para que solo se vea el borde */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+/* Animación que rota el ángulo del degradado, NO el elemento */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Animación para el borde giratorio del logo */
+@keyframes spin-rgb {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-border {
+  to {
+    --angle: 360deg;
+  }
+}
+
 
 .principal {
   font-size: 3rem;
@@ -92,28 +170,20 @@ nav ul li a:visited {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: linear-gradient(90deg, #00ff99, #00cc55);
+  /* Degradado RGB para el texto */
+  background: linear-gradient(90deg, #ff0000, #00ff99, #00ccff, #ff00ff, #ff0000);
+  background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
   /* sombras para profundidad */
   text-shadow:
-    1px 1px 2px rgba(0,0,0,0.7),
-    2px 2px 5px rgba(0,255,153,0.7),
-    4px 4px 10px rgba(0,255,153,0.4);
+    0 0 5px rgba(0, 255, 153, 0.5),
+    0 0 15px rgba(0, 255, 153, 0.3);
 
   /* brillo animado */
-  animation: shine 3s infinite linear;
-}
-
-/* Animación para el brillo que se mueve */
-@keyframes shine {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  animation: text-shine 4s linear infinite;
 }
 
 .switch {
@@ -180,11 +250,24 @@ nav ul li a:visited {
 .section {
   max-width: 1200px;
   margin: 0 auto 3rem auto;
-  padding: 1rem 2rem;
-  background: rgba(20, 20, 20, 0.85);
+  padding: 2rem;
   border-radius: 15px;
-  margin-top: 140px;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+  margin-top: 100px;  /* Reducido para quitar espacio extra */
+  /* Nuevo fondo RGB animado y translúcido */
+  background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
+  background-size: 400% 400%;
+  animation: 
+    animated-rgb-background 15s ease infinite, 
+    rgb-shadow-animation 5s linear infinite;
+}
+
+.info-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.info-block:last-child {
+  margin-bottom: 0;
 }
 
 .info-container {
@@ -220,19 +303,12 @@ nav ul li a:visited {
   margin-bottom: 0.8rem;
 }
 
-.divider {
-  width: 2px;
-  background: #00ff99;
-  border-radius: 10px;
-  margin: 0 1rem;
-}
-
 /* Main Clases - Tabs */
 main {
   max-width: 1200px;
-  margin: 0 auto 3rem auto;
+  margin: 3rem auto;
   padding: 0 rem;
-  box-shadow: 0 0 25px  rgba(0, 255, 100, 0.2);
+  animation: rgb-shadow-animation 5s linear infinite;
   border-radius: 20px;
 }
 
@@ -291,6 +367,11 @@ main {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+}
+.info-container-modal {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .text-and-image {
@@ -352,35 +433,24 @@ main {
 }
 
 /* Contacto y servicios */
-.section#contacto {
-  max-width: 1200px;
+.section#services-carousel-section {
+  max-width: 1200px; /* Ancho igual a las otras secciones */
   margin: 3rem auto;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+  animation: rgb-shadow-animation 5s linear infinite;
 }
 
-.contacto-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-  padding: 2rem;
+.section#contact-form-section {
+  max-width: 1200px; /* Ancho igual a las otras secciones */
+  margin: 3rem auto;
 }
 
-.servicios-container,
-form#contact-form {
-  flex: 1 1 400px;
-  background-color: rgba(255, 255, 255, 0.1);
+.servicios-container {
+  text-align: center; /* Center the button below the carousel */
+  position: relative; /* For absolute positioning of arrows */
+  height: auto;
+  min-height: 500px;
   padding: 2rem;
   border-radius: 20px;
-  color: #eee;
-  box-shadow: 0 0 12px rgba(0,0,0,0.6);
-}
-
-.servicios-container{
-  height: 573px;
 }
 
 .titulo-servicio {
@@ -388,72 +458,85 @@ form#contact-form {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #00ff99;
+  position: relative;
+  z-index: 2; /* Ensure title is above carousel */
 }
 
 .servicios-carrusel {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  height: 350px; 
+  justify-content: center;
   position: relative;
-  top: 20px;
+  width: 100%;
+  max-width: 450px;
+  margin: 2rem auto;
 }
 
-.servicio-visible {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Altura para las tarjetas */
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
   height: 100%;
 }
 
 .servicio-item {
+  position: absolute;
+  width: 90%;
+  height: 200px;
+  left: 50%; /* Corregido para un centrado perfecto */
+  top: 0;
   background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 1rem;
-  display: none;
+  border-radius: 15px;
+  padding: 1.5rem;
   color: #f0f0f0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
-}
-
-.servicio-item.activo {
-  display: block;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  will-change: transform, opacity; /* Optimización para la animación */
+  align-items: center;
+  text-align: center;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0s 0.25s;
+  cursor: pointer;
+  user-select: none;
 }
 
 .servicio-item h3 {
   color: #00ff99;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
 }
 
 .servicio-item p {
-  font-size: 0.95rem;
-  line-height: 1.3;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-.flecha {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #252525;
+.carousel-nav {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 50px; 
+  gap: 10px;
+  margin-top: 1.5rem;
 }
 
-.flecha.arriba {
-  top: 0;
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-dot.active {
   background-color: #00ff99;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
-}
-
-.flecha.abajo {
-  bottom: 0;
-   background-color: #00ff99;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
 }
 
 /* Formulario */
@@ -461,6 +544,7 @@ form#contact-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 0 auto; /* Center the form */
 }
 
 form#contact-form input,
@@ -491,7 +575,6 @@ form#contact-form textarea:focus {
 }
 
 .btn-1 {
-  background-color: #00ff99;;
   color: white;
   border: none;
   padding: 1rem;
@@ -499,28 +582,62 @@ form#contact-form textarea:focus {
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.2s ease;
+  /* Estilos para el botón con borde RGB */
+  background-color: #1a1a1a;
+  z-index: 1; /* Asegura que el texto esté sobre el borde */
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #00ff99;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .btn-1:hover {
-  background-color: #388e3c;
+  transform: scale(1.05);
+  background-color: #222;
 }
 
 .contactenos {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   color: #00ff99;
 }
 
 /* Footer */
 footer {
-  background-color: #111;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   color: #ccc;
   margin-top: 3rem;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
+  /* Mismo fondo que las secciones */
+  background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
+  background-size: 400% 400%;
+  animation: animated-rgb-background 15s ease infinite;
 }
 
 .footer-container {
@@ -584,21 +701,26 @@ footer img:hover {
   transform: scale(1.1);
 }
 
-/* Video fondo */
-#video-fondo {
+/* Estilos para el video de fondo */
+#video-fondo, #video-fondo video#bg-video {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: -2;
+  object-fit: cover;
 }
 
-#video-fondo video#bg-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Posicionamos el video detrás de todo */
+#video-fondo {
+  z-index: -1;
+}
+
+/* Contenedor para el contenido principal */
+.main-content {
+  position: relative; /* Crea un contexto de apilamiento */
+  z-index: 10; /* Asegura que esté por encima del fondo de video */
 }
 
 .principal{
@@ -606,8 +728,6 @@ footer img:hover {
 }
 
 .btn-detalles {
-  padding: 0.5rem 1rem;
-  background-color: #00ff99;;
   color: white;
   border: none;
   padding: 1rem;
@@ -615,13 +735,13 @@ footer img:hover {
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background 0.3s;
-  position: relative;
-  top: 176px;
+  transition: transform 0.2s ease;
+  margin-top: 20px; /* Adjust spacing below carousel */
+  background-color: #1a1a1a;
+  z-index: 1;
 }
 
 .btn-detalles:hover {
-  background-color: #00aa55;
   transform: scale(1.05);
 }
 
@@ -639,14 +759,19 @@ footer img:hover {
 }
 
 .modal-contenido {
-  background-color: #111;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
   color: white;
-  width: 80%;
+  width: 90%;
   max-width: 500px;
   position: relative;
+  text-align: left;
+  /* Aplicamos el mismo fondo RGB animado de las secciones */
+  background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
+  background-size: 400% 400%;
+  animation: 
+    animated-rgb-background 15s ease infinite, 
+    rgb-shadow-animation 5s linear infinite;
 }
 
 .cerrar-modal {
@@ -667,15 +792,18 @@ footer img:hover {
 
 /* turnos de motivacion*/
 .acompanamiento {
-  background: rgba(3, 3, 3, 0.26);
   margin: 50px auto;
   padding: 40px;
   max-width: 1200px;
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0, 255, 100, 0.2);
   color: #fff;
   text-align: center;
-  backdrop-filter: blur(5px);
+  /* Aplicamos el mismo fondo RGB animado */
+  background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
+  background-size: 400% 400%;
+  animation: 
+    animated-rgb-background 15s ease infinite, 
+    rgb-shadow-animation 5s linear infinite;
 }
 
 .acompanamiento h2 {
@@ -705,18 +833,18 @@ footer img:hover {
 }
 
 .turno-btn a {
-  background-color: #00cc66;
+  background-color: #1a1a1a;
   color: #fff;
   padding: 12px 25px;
   font-weight: bold;
   border-radius: 30px;
   text-decoration: none;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
   display: inline-block;
+  z-index: 1;
 }
 
 .turno-btn a:hover {
-  background-color: #00aa55;
   transform: scale(1.05);
 }
 
@@ -778,6 +906,21 @@ footer img:hover {
   100% { filter: drop-shadow(0 0 25px #00ffcc); }
 }
 
+/* Animación para el brillo que se mueve en el texto */
+@keyframes text-shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Animación para el fondo RGB de los contenedores */
+@keyframes animated-rgb-background {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
 @keyframes flicker {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.85; }
@@ -796,6 +939,25 @@ footer img:hover {
   pointer-events: none;
 }
 
+/* Animación de sombra RGB */
+@keyframes rgb-shadow-animation {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); /* Rojo */
+  }
+  25% {
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.5); /* Verde (original) */
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.4); /* Azul */
+  }
+  75% {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4); /* Magenta */
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); /* Rojo (cierre de ciclo) */
+  }
+}
+
 .error-message {
   font-family: Arial, sans-serif;
 }
@@ -805,25 +967,30 @@ footer img:hover {
   .nav-links {
     display: none;
     flex-direction: column;
-    gap: 1rem;
-    background-color: rgba(0, 0, 0, 0.85);
+    gap: 1.5rem;
     position: absolute;
-    top: 70px;
-    right: 20px;
+    top: 85px; /* Un poco más abajo para no tocar la navbar */
+    right: 1rem;
     padding: 1rem 2rem;
-    border-radius: 10px;
-    width: 200px;
+    border-radius: 15px;
+    width: calc(100% - 2rem); /* Ocupa casi todo el ancho */
+    max-width: 300px;
     z-index: 150;
+    /* Mismo estilo que las secciones */
+    background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
+    background-size: 400% 400%;
+    animation: animated-rgb-background 15s ease infinite;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
   }
+
 
   .menu-toggle {
     display: block;
   }
 
-  .logoprincipal{
-    display: flex;
+  .navbar .logo {
     position: relative;
-    right: 20px;
+    left: -20px;
   }
 
   .nav-links.active {
@@ -845,65 +1012,84 @@ footer img:hover {
     flex: 1 1 100%;
   }
 
+  .info-container-modal {
+    flex-direction: column;
+  }
+
   .tab {
     flex: 1 1 100%;
     text-align: center;
   }
 
-  .servicios-container{
-  position: relative;
-  height: 573px;
-  width: 300px;
-  right: 5px;
-}
+  .section#services-carousel-section {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 
-form#contact-form {
-  position: relative;
-  right: 5px;
-  height: 573px;
-}
+  .servicios-container{
+    min-height: 420px; /* Altura más compacta para el carrusel */
+    padding: 1.5rem 0; /* Quitamos padding lateral para que no se sume */
+  }
+
+  .servicio-item {
+    width: 90%; /* Un poco más angosto que el contenedor */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%) scale(1); /* Centrado y a tamaño completo */
+  }
 
 #contacto{
 background-color: rgba(0, 0, 0, 0.1);
 }
 
 #info{
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+form#contact-form {
+  width: 100%; /* El ancho lo controla la sección padre */
+  padding: 0 1rem; /* Añadimos padding para que no toque los bordes */
 }
 
 .btn-detalles{
   position: relative;
-  top: 40px;
-}
-
-main{
   margin: 30px;
 }
 
 .acompanamiento{
-  margin: 30px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.section#contact-form-section {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 
 .footer-container {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+    align-items: center; /* Centra los elementos hijos horizontalmente */
+    gap: 1.5rem;
   }
 
   .footer-text {
-    flex-grow: unset;
-    padding: 0 1rem;
+    order: 1; /* El texto va primero */
   }
 
-  .social-icons,
+  .footer-center {
+    order: 1; /* El bloque central va primero */
+    text-align: center;
+  }
+
+  .social-icons {
+    order: 2; /* Iconos sociales después del texto */
+    gap: 2rem;
+  }
+
   .payment-icons {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    left: 160px;
+    order: 3; /* Iconos de pago al final */
+    gap: 2rem;
   }
 
   footer img {

@@ -7,7 +7,7 @@ Sitio web informativo de Tech Companion, una empresa de soporte y formación tec
 ### Contenido
 - Diseño web responsive
 - Modo oscuro
-- Carrusel de servicios
+- Carrusel de servicios 3D interactivo
 - Menú responsive tipo acordeón
 - Efectos visuales y estructura moderna
 

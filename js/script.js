@@ -1,85 +1,174 @@
-const navLinks = document.querySelectorAll('.nav-links a');
+document.addEventListener('DOMContentLoaded', function() {
 
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-    if(targetElement){
-      const yOffset = -150; 
-      const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    } else {
-      console.warn(`No se encontró el elemento con id: ${targetId}`);
-    }
-  });
-});
-
-// Toggle accordion menu on mobile
-document.addEventListener('DOMContentLoaded', () => {
+  // Toggle accordion menu on mobile
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
 
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
-});
 
-// Envío de formulario de contacto
-const contactForm = document.getElementById('contact-form');
-  const respuesta = document.getElementById('form-respuesta');
-
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-
-    try {
-      const res = await fetch(contactForm.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (res.ok) {
-        respuesta.textContent = "✅ Tu consulta fue enviada correctamente.";
-        contactForm.reset();
+  // Smooth scroll for nav links
+  const navLinksAnchors = document.querySelectorAll('.nav-links a');
+  navLinksAnchors.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if(targetElement){
+        const yOffset = -150; 
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       } else {
-        respuesta.textContent = "❌ Ocurrió un error al enviar tu consulta. Probá más tarde.";
-        respuesta.style.color = "red";
+        console.warn(`No se encontró el elemento con id: ${targetId}`);
       }
-    } catch (error) {
-      respuesta.textContent = "❌ No se pudo enviar el formulario. Revisa tu conexión.";
-      respuesta.style.color = "red";
-    }
+    });
   });
 
-// Ajuste del footer
-document.addEventListener('DOMContentLoaded', () => {
-  const footer = document.querySelector('footer');
+  // --- LÓGICA PARA MÚLTIPLES MODALES ---
+  // Abrir modales
+  document.querySelectorAll('[id^="btn-"]').forEach(button => {
+    button.addEventListener('click', () => {
+      const modalId = button.id.replace('btn-', 'modal-');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'flex';
+      }
+    });
+  });
+
+  // Cerrar modales con el botón 'x'
+  document.querySelectorAll('.cerrar-modal').forEach(button => {
+    button.addEventListener('click', () => {
+      const modalId = button.getAttribute('data-modal-id');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+
+  // Cerrar modales al hacer clic fuera del contenido
+  document.querySelectorAll('.modal-detalle').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+
+  // Envío de formulario de contacto
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const respuesta = document.getElementById('form-respuesta');
+    const spinnerContainer = contactForm.querySelector('.spinner-container');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    // --- LÓGICA DE VALIDACIÓN INTEGRADA ---
+    const campos = {
+      nombre: { elemento: contactForm.querySelector('#nombre'), regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/, errorMsg: 'El nombre debe contener solo letras y espacios (mín. 2).' },
+      apellido: { elemento: contactForm.querySelector('#apellido'), regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/, errorMsg: 'El apellido debe contener solo letras y espacios (mín. 2).' },
+      email: { elemento: contactForm.querySelector('#email'), regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, errorMsg: 'Por favor ingresa un email válido.' },
+      telefono: { elemento: contactForm.querySelector('#telefono'), regex: /^\d{8,12}$/, errorMsg: 'El teléfono debe tener entre 8 y 12 dígitos.' },
+      mensaje: { elemento: contactForm.querySelector('#mensaje'), regex: /[\s\S]{10,}/, errorMsg: 'El mensaje debe tener al menos 10 caracteres.' },
+    };
+
+    for (const key in campos) {
+      let campo = campos[key];
+      let errorElem = document.createElement('div');
+      errorElem.className = 'error-message';
+      errorElem.style.display = 'none';
+      campo.elemento.insertAdjacentElement('afterend', errorElem);
+      campo.errorElem = errorElem;
+    }
+
+    function validarCampo(campo) {
+      const val = campo.elemento.value.trim();
+      if (!campo.regex.test(val)) {
+        campo.errorElem.textContent = campo.errorMsg;
+        campo.errorElem.style.display = 'block';
+        return false;
+      } else {
+        campo.errorElem.style.display = 'none';
+        return true;
+      }
+    }
+
+    function validarFormulario() {
+      let esValido = true;
+      for (const key in campos) {
+        if (!validarCampo(campos[key])) esValido = false;
+      }
+      return esValido;
+    }
+
+    contactForm.addEventListener('input', () => {
+      submitButton.disabled = !validarFormulario();
+    });
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validarFormulario()) {
+        respuesta.textContent = 'Por favor corrige los errores antes de enviar.';
+        respuesta.style.color = 'red';
+        return;
+      }
+
+      submitButton.style.display = 'none';
+      spinnerContainer.style.display = 'flex';
+      respuesta.textContent = '';
+
+      try {
+        const formData = new FormData(contactForm);
+        const res = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          respuesta.textContent = "✅ Tu consulta fue enviada correctamente.";
+          respuesta.style.color = "green";
+          contactForm.reset();
+          submitButton.disabled = true;
+          for (const key in campos) {
+            campos[key].errorElem.style.display = 'none';
+          }
+        } else {
+          respuesta.textContent = "❌ Ocurrió un error al enviar tu consulta. Probá más tarde.";
+          respuesta.style.color = "red";
+        }
+      } catch (error) {
+        respuesta.textContent = "❌ No se pudo enviar el formulario. Revisa tu conexión.";
+        respuesta.style.color = "red";
+      } finally {
+        submitButton.style.display = 'block';
+        spinnerContainer.style.display = 'none';
+      }
+    });
+
+    submitButton.disabled = true; // Deshabilitar al inicio
+  }
+
+    // --- FOOTER DINÁMICO Y MODALES ---
+    const footer = document.querySelector('footer');
   footer.innerHTML = `
-    <div class="footer-container" style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 10px;">
-      <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; flex-wrap: wrap;">
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61578005793210" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook"></a>
-          <a href="https://www.instagram.com/techcompanion_it/" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram"></a>
-        </div>
-        <div class="footer-text" style="text-align: center; flex-grow: 1; color: #1eec63;">
+    <div class="footer-container">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61578005793210" target="_blank"><img src="../pictures/facebook1.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/techcompanion_it/" target="_blank"><img src="../pictures/instagramweb.webp" alt="Instagram"></a>
+      </div>
+      <div class="footer-center">
+        <div class="footer-text">
           &copy; 2025 Servicios de soporte - ayuda y clases particulares. En este 2025 estamos con vos
         </div>
-        
-        <div class="payment-icons" style="display: flex; gap: 10px;">
-          <a href="#" id="mercadoPagoBtn"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
-          <a href="#" id="cuentaDniBtn"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
+        <div class="legal-link">
+          <button id="legal-toggle" style="background: none; color: #1eec63; border: none; cursor: pointer; text-decoration: underline;">Política de Privacidad y Términos</button>
         </div>
       </div>
-
-      <div style="margin-top: 0px;">
-        <button id="legal-toggle" style="background: none; color: #1eec63; border: none; cursor: pointer; text-decoration: underline;">
-          Política de Privacidad y Términos
-        </button>
+      <div class="payment-icons">
+        <a href="#" id="mercadoPagoBtn"><img src="../pictures/mercadopago1.png" alt="Mercado Pago" width="30"></a>
+        <a href="#" id="cuentaDniBtn"><img src="../pictures/cuentadni1.jpg" alt="Cuenta DNI" width="30"></a>
       </div>
     </div>
 
@@ -120,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="modal-content">
         <span class="close" onclick="cerrarModal('modalDNI')">&times;</span>
         <h3 style="color: #1eec63;">Alias Cuenta DNI</h3>
-        <p id="aliasDNI">34.835.984</p>
+        <p id="aliasDNI">techcompanion.it</p>
         <button onclick="copiarAlias('aliasDNI')">Copiar Alias</button>
       </div>
     </div>
@@ -227,189 +316,22 @@ setTimeout(() => {
   });
 });
 
-
-
-//Efecto de particulas del cursor 
-const canvas = document.getElementById('trail');
-const ctx = canvas.getContext('2d');
-
-let width = window.innerWidth;
-let height = window.innerHeight;
-canvas.width = width;
-canvas.height = height;
-
-let mouse = { x: width / 2, y: height / 2 };
-let particles = [];
-
-window.addEventListener('mousemove', (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
-function getRandomColor() {
-  const r = Math.floor(Math.random() * 255);
-  const g = Math.floor(Math.random() * 255);
-  const b = Math.floor(Math.random() * 255);
-  return `rgba(${r}, ${g}, ${b}, 0.6)`;  // Slightly lower opacity
-}
-
-class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.size = Math.random() * 3 + 1;  // Smaller size
-    this.speedX = Math.random() * 3 - 1.5;
-    this.speedY = Math.random() * 3 - 1.5;
-    this.life = 100;
-    this.opacity = Math.random() * 0.5 + 0.2;
-    this.color = getRandomColor();
-  }
-
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.life -= 1;
-    this.opacity -= 0.015;  // Faster fading
-    if (this.life <= 0) {
-      particles.splice(particles.indexOf(this), 1);
-    }
-  }
-
-  draw() {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-function createParticles() {
-  let particle = new Particle(mouse.x, mouse.y);
-  particles.push(particle);
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, width, height);
-  createParticles();
-  particles.forEach(p => {
-    p.update();
-    p.draw();
-  });
-  requestAnimationFrame(animateParticles);
-}
-
-animateParticles();
-
-window.addEventListener('resize', () => {
-  width = window.innerWidth;
-  height = window.innerHeight;
-  canvas.width = width;
-  canvas.height = height;
-});
-
-
-
-// servicios del carousel
-document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('.servicio-item');
-  let index = 0;
-
-  function mostrarServicio(i) {
-    items.forEach(item => item.classList.remove('activo'));
-    items[i].classList.add('activo');
-  }
-
-  document.querySelector('.flecha.arriba').addEventListener('click', () => {
-    index = (index - 1 + items.length) % items.length;
-    mostrarServicio(index);
-  });
-
-  document.querySelector('.flecha.abajo').addEventListener('click', () => {
-    index = (index + 1) % items.length;
-    mostrarServicio(index);
-  });
-
-  mostrarServicio(index);
-});
-
-
-
-// estilos cambiando entre si
- document.getElementById('dark-mode-toggle').addEventListener('click', () => {
-    window.location.href = 'versionwhite.html'; // ir a la versión blanco y negro
-  });
-
-
-  //btn-detalle
- const btnDetalles = document.querySelector('.btn-detalles');
-const modal = document.getElementById('modal-detalle');
-const cerrarModal = document.getElementById('cerrar-modal');
-const modalTitulo = document.getElementById('modal-titulo');
-const modalDescripcion = document.getElementById('modal-descripcion');
-
-btnDetalles.addEventListener('click', () => {
-  const servicioActivo = document.querySelector('.servicio-item.activo');
-  const titulo = servicioActivo.querySelector('h3').innerText;
-  const descripcion = servicioActivo.getAttribute('data-detalle');
-
-  modalTitulo.textContent = titulo;
-  modalDescripcion.textContent = descripcion;
-
-  modal.style.display = 'flex';
-});
-
-cerrarModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-// Cerrar modal si se hace click fuera del contenido
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
-});
-
-//presentacion
- const overlay = document.getElementById("introOverlay");
-  const sound = document.getElementById("portalSound");
-
-  overlay.addEventListener("click", () => {
-    sound.play();
-    overlay.classList.add("fadeOut");
-    setTimeout(() => {
-      overlay.style.display = "none";
-    }, 1000); // espera para mostrar el sitio
-  });
-
-//mensaje wtsp
- document.querySelectorAll('.price-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Buscamos el contenedor padre content-box
-      const contentBox = btn.closest('.content-box');
-
-      // Extraemos el título de la clase (h2)
-      const tituloClase = contentBox.querySelector('h2').innerText;
-
-      // Precio del botón
-      const precio = btn.innerText.trim();
-
-      // Fecha actual en formato mes - año (en español)
-      const fecha = new Date();
-      const opciones = { month: 'long', year: 'numeric' };
-      const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
-
-      // Mensaje para WhatsApp
-      const mensaje = `Me interesa saber si tenes un turno disponible para ${tituloClase} - ${fechaFormateada} y el precio ${precio}`;
-
-      // Número de WhatsApp con código de país (ajustá tu número)
-      const numeroWhatsapp = '5492324342375';
-
-      // URL para abrir WhatsApp con mensaje codificado
-      const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensaje)}`;
-
-      // Abrir en nueva pestaña
-      window.open(url, '_blank');
+// --- FUNCIÓN PRINCIPAL DE INICIALIZACIÓN ---
+function main() {
+  // --- INTRO ANIMATION ---
+  const overlay = document.getElementById("introOverlay");
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      overlay.classList.add("fadeOut");
+      setTimeout(() => {
+        overlay.style.display = "none";
+        document.body.style.overflow = 'auto';
+      }, 1000);
     });
-  });
+  } else {
+    // Si no hay intro, habilitamos el scroll de inmediato.
+    document.body.style.overflow = 'auto';
+  }
+}
 
-
+document.addEventListener('DOMContentLoaded', main);
