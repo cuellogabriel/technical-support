@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.classList.toggle('active');
   });
 
-  // Smooth scroll for nav links
+  //  nav links
   const navLinksAnchors = document.querySelectorAll('.nav-links a');
   navLinksAnchors.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // --- LÓGICA PARA MÚLTIPLES MODALES ---
+  
   // Abrir modales
   document.querySelectorAll('[id^="btn-"]').forEach(button => {
     button.addEventListener('click', () => {
@@ -318,7 +318,7 @@ setTimeout(() => {
 
 // --- FUNCIÓN PRINCIPAL DE INICIALIZACIÓN ---
 function main() {
-  // --- INTRO ANIMATION ---
+
   const overlay = document.getElementById("introOverlay");
   if (overlay) {
     overlay.addEventListener("click", () => {

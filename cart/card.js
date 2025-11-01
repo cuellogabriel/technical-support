@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
   // --- LÓGICA DEL CARRUSEL DE SERVICIOS ---
   const carouselSection = document.getElementById('services-carousel-section');
-  if (!carouselSection) return; // No ejecutar si no estamos en la página correcta
+  if (!carouselSection) return; 
 
   const serviceItems = carouselSection.querySelectorAll('.servicio-item');
   const navDots = carouselSection.querySelectorAll('.nav-dot');
   const btnDetalles = document.getElementById('btn-detalles-carousel');
 
   if (serviceItems.length === 0 || navDots.length === 0 || !btnDetalles) {
-    return; // No continuar si faltan elementos del carrusel
+    return; 
   }
 
   let currentIndex = 0;
