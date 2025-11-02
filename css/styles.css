@@ -36,22 +36,20 @@ nav {
   align-items: center; 
   justify-content: space-between; 
   padding: 0.5rem 2rem; 
-  border-radius: 0 0 15px 15px; /* Bordes redondeados para el navbar */
-  /* Mismo fondo que las secciones */
+  border-radius: 0 0 15px 15px; 
   background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
   background-size: 400% 400%;
   animation: animated-rgb-background 15s ease infinite;
 }
 
 .nav-links li a.stilo {
-  position: relative; /* Para el efecto de borde */
+  position: relative; 
   color: #aaa;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   background-color: transparent;
-  /* Efecto hundido */
   box-shadow: inset 2px 2px 5px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(255,255,255,0.05);
   transition: all 0.3s ease;
 }
@@ -74,7 +72,7 @@ nav ul li a:visited {
 
 .acompanamiento-a a:hover{
  
-  color: #0ff;     /* Cambialo por el color que usás al pasar el mouse */
+  color: #0ff;   
 }
 
 .logoprincipal{
@@ -89,11 +87,11 @@ nav ul li a:visited {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.navbar .logo { /* Contenedor para el logo y su borde animado */
+.navbar .logo { 
   display: flex;
   align-items: center;
-  position: relative; /* Necesario para posicionar el borde */
-  width: 70px; /* Mismo tamaño que el logo */
+  position: relative; 
+  width: 70px;
   height: 70px;
   justify-content: center;
 }
@@ -101,12 +99,12 @@ nav ul li a:visited {
 .navbar .logo::before {
   content: '';
   position: absolute;
-  top: -5px; /* Ajuste para que el borde esté por fuera */
+  top: -5px;
   left: -5px;
   right: -5px;
   bottom: -5px;
   border-radius: 50%;
-  padding: 3px; /* Grosor del borde */
+  padding: 3px; 
   background: conic-gradient(from 0deg, red, yellow, lime, aqua, blue, magenta, red);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -124,10 +122,10 @@ nav ul li a:visited {
 .rgb-border-spin::before {
   content: '';
   position: absolute;
-  z-index: -1; /* Lo pone detrás del contenido del botón/elemento */
-  inset: 0; /* Ocupa el mismo espacio que el elemento padre */
-  border-radius: inherit; /* Hereda la forma del borde del elemento padre */
-  padding: 3px; /* Grosor del borde */
+  z-index: -1; 
+  inset: 0; 
+  border-radius: inherit; 
+  padding: 3px; 
   background: conic-gradient(from var(--angle), #0d0d0d, #0d0d0d 25%, #00ff99, #0d0d0d 75%, #0d0d0d);
   animation: spin-border 4s linear infinite;
   
@@ -170,14 +168,13 @@ nav ul li a:visited {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  /* Degradado RGB para el texto */
   background: linear-gradient(90deg, #ff0000, #00ff99, #00ccff, #ff00ff, #ff0000);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* sombras para profundidad */
+  
   text-shadow:
     0 0 5px rgba(0, 255, 153, 0.5),
     0 0 15px rgba(0, 255, 153, 0.3);
@@ -252,8 +249,7 @@ nav ul li a:visited {
   margin: 0 auto 3rem auto;
   padding: 2rem;
   border-radius: 15px;
-  margin-top: 100px;  /* Reducido para quitar espacio extra */
-  /* Nuevo fondo RGB animado y translúcido */
+  margin-top: 100px;  
   background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
   background-size: 400% 400%;
   animation: 
@@ -404,7 +400,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-   max-width: 150px; /* Reduce tamaño máximo */
+   max-width: 150px; 
   flex-shrink: 0;
 }
 
@@ -434,19 +430,19 @@ main {
 
 /* Contacto y servicios */
 .section#services-carousel-section {
-  max-width: 1200px; /* Ancho igual a las otras secciones */
+  max-width: 1200px; 
   margin: 3rem auto;
   animation: rgb-shadow-animation 5s linear infinite;
 }
 
 .section#contact-form-section {
-  max-width: 1200px; /* Ancho igual a las otras secciones */
+  max-width: 1200px; 
   margin: 3rem auto;
 }
 
 .servicios-container {
-  text-align: center; /* Center the button below the carousel */
-  position: relative; /* For absolute positioning of arrows */
+  text-align: center;
+  position: relative; 
   height: auto;
   min-height: 500px;
   padding: 2rem;
@@ -459,7 +455,7 @@ main {
   margin-bottom: 1.5rem;
   color: #00ff99;
   position: relative;
-  z-index: 2; /* Ensure title is above carousel */
+  z-index: 2; 
 }
 
 .servicios-carrusel {
@@ -476,7 +472,7 @@ main {
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  height: 250px; /* Altura para las tarjetas */
+  height: 250px; 
 }
 
 .carousel-inner {
@@ -489,7 +485,7 @@ main {
   position: absolute;
   width: 90%;
   height: 200px;
-  left: 50%; /* Corregido para un centrado perfecto */
+  left: 50%; 
   top: 0;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
@@ -499,7 +495,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  will-change: transform, opacity; /* Optimización para la animación */
+  will-change: transform, opacity; 
   align-items: center;
   text-align: center;
   transition: transform 0.5s ease, opacity 0.5s ease, z-index 0s 0.25s;
@@ -544,7 +540,7 @@ form#contact-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin: 0 auto; /* Center the form */
+  margin: 0 auto; 
 }
 
 form#contact-form input,
@@ -583,9 +579,8 @@ form#contact-form textarea:focus {
   font-size: 1.1rem;
   cursor: pointer;
   transition: transform 0.2s ease;
-  /* Estilos para el botón con borde RGB */
   background-color: #1a1a1a;
-  z-index: 1; /* Asegura que el texto esté sobre el borde */
+  z-index: 1; 
 }
 
 .form-footer {
@@ -634,7 +629,6 @@ footer {
   text-align: center;
   color: #ccc;
   margin-top: 3rem;
-  /* Mismo fondo que las secciones */
   background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
   background-size: 400% 400%;
   animation: animated-rgb-background 15s ease infinite;
@@ -719,8 +713,8 @@ footer img:hover {
 
 /* Contenedor para el contenido principal */
 .main-content {
-  position: relative; /* Crea un contexto de apilamiento */
-  z-index: 10; /* Asegura que esté por encima del fondo de video */
+  position: relative; 
+  z-index: 10; 
 }
 
 .principal{
@@ -736,7 +730,7 @@ footer img:hover {
   font-size: 1.1rem;
   cursor: pointer;
   transition: transform 0.2s ease;
-  margin-top: 20px; /* Adjust spacing below carousel */
+  margin-top: 20px; 
   background-color: #1a1a1a;
   z-index: 1;
 }
@@ -766,7 +760,6 @@ footer img:hover {
   max-width: 500px;
   position: relative;
   text-align: left;
-  /* Aplicamos el mismo fondo RGB animado de las secciones */
   background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
   background-size: 400% 400%;
   animation: 
@@ -798,7 +791,6 @@ footer img:hover {
   border-radius: 20px;
   color: #fff;
   text-align: center;
-  /* Aplicamos el mismo fondo RGB animado */
   background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
   background-size: 400% 400%;
   animation: 
@@ -906,14 +898,14 @@ footer img:hover {
   100% { filter: drop-shadow(0 0 25px #00ffcc); }
 }
 
-/* Animación para el brillo que se mueve en el texto */
+
 @keyframes text-shine {
   to {
     background-position: 200% center;
   }
 }
 
-/* Animación para el fondo RGB de los contenedores */
+
 @keyframes animated-rgb-background {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -942,19 +934,19 @@ footer img:hover {
 /* Animación de sombra RGB */
 @keyframes rgb-shadow-animation {
   0% {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); /* Rojo */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); 
   }
   25% {
-    box-shadow: 0 0 20px rgba(0, 255, 100, 0.5); /* Verde (original) */
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.5); 
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 100, 255, 0.4); /* Azul */
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.4); 
   }
   75% {
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4); /* Magenta */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4); 
   }
   100% {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); /* Rojo (cierre de ciclo) */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); 
   }
 }
 
@@ -969,14 +961,13 @@ footer img:hover {
     flex-direction: column;
     gap: 1.5rem;
     position: absolute;
-    top: 85px; /* Un poco más abajo para no tocar la navbar */
+    top: 85px; 
     right: 1rem;
     padding: 1rem 2rem;
     border-radius: 15px;
-    width: calc(100% - 2rem); /* Ocupa casi todo el ancho */
+    width: calc(100% - 2rem); 
     max-width: 300px;
     z-index: 150;
-    /* Mismo estilo que las secciones */
     background: linear-gradient(135deg, rgb(20, 0, 30), rgb(0, 20, 40), rgb(40, 10, 30));
     background-size: 400% 400%;
     animation: animated-rgb-background 15s ease infinite;
@@ -1027,14 +1018,14 @@ footer img:hover {
   }
 
   .servicios-container{
-    min-height: 420px; /* Altura más compacta para el carrusel */
-    padding: 1.5rem 0; /* Quitamos padding lateral para que no se sume */
+    min-height: 420px; 
+    padding: 1.5rem 0; 
   }
 
   .servicio-item {
-    width: 90%; /* Un poco más angosto que el contenedor */
-    left: 50%; /* Centrado horizontal */
-    transform: translateX(-50%) scale(1); /* Centrado y a tamaño completo */
+    width: 90%; 
+    left: 50%;
+    transform: translateX(-50%) scale(1); 
   }
 
 #contacto{
@@ -1047,8 +1038,8 @@ background-color: rgba(0, 0, 0, 0.1);
 }
 
 form#contact-form {
-  width: 100%; /* El ancho lo controla la sección padre */
-  padding: 0 1rem; /* Añadimos padding para que no toque los bordes */
+  width: 100%; 
+  padding: 0 1rem; 
 }
 
 .btn-detalles{
@@ -1066,29 +1057,34 @@ form#contact-form {
   margin-right: 1rem;
 }
 
+.section#proteccion-digital {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 
 .footer-container {
     flex-direction: column;
-    align-items: center; /* Centra los elementos hijos horizontalmente */
+    align-items: center; 
     gap: 1.5rem;
   }
 
   .footer-text {
-    order: 1; /* El texto va primero */
+    order: 1; 
   }
 
   .footer-center {
-    order: 1; /* El bloque central va primero */
+    order: 1; 
     text-align: center;
   }
 
   .social-icons {
-    order: 2; /* Iconos sociales después del texto */
+    order: 2; 
     gap: 2rem;
   }
 
   .payment-icons {
-    order: 3; /* Iconos de pago al final */
+    order: 3; 
     gap: 2rem;
   }
 
